@@ -1,0 +1,2 @@
+# androidmvvmdemo
+这是一个基于 Android Architecture Components构建的mvvm架构演示项目
