@@ -37,6 +37,7 @@ dependencies {
 
     //BaseRecyclerViewAdapterHelper
     api projectDependencies.BaseRecyclerViewAdapterHelper
+    api projectDependencies.androidpickerView
 
 //    implementation projectDependencies.supportLibsConstraintLayout
 //    implementation projectDependencies.supportDesign
