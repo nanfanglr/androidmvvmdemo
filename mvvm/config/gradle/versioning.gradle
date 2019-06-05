@@ -16,7 +16,7 @@ ext.versions = [
 
         // Libraries
         supportLibraries           : '27.1.1',
-        constraintLayout           : '1.1.2',
+        constraintLayout           : '1.1.3',
         crashlytics                : '2.8.0',
         answersAnalytics           : '1.3.10',
         butterknife                : '8.8.1',
@@ -70,6 +70,10 @@ ext.versions = [
         aliyunOss                  : '2.9.1',
         //mvvm(Lifecycles, LiveData, and ViewModel, Room)
         androidArch                : '1.1.1',
+        //https://github.com/hdodenhof/CircleImageView
+        circleimageview            : '3.0.0',
+        //Android-PickerView
+        androidpickerView       : '4.1.7'
 
 ]
 

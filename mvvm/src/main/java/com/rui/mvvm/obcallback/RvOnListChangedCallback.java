@@ -14,20 +14,20 @@ import android.support.v7.widget.RecyclerView;
  *
  * @param <T>
  */
-public class RvOnListChangedCallback<T extends ObservableList> extends ObservableList.OnListChangedCallback<T> {
+public class RvOnListChangedCallback<T extends ObservableList, ADAPTER extends RecyclerView.Adapter> extends ObservableList.OnListChangedCallback<T> {
 
-    private RecyclerView.Adapter adapter;
+    protected ADAPTER adapter;
 
 
     public RvOnListChangedCallback() {
     }
 
-    public RvOnListChangedCallback(RecyclerView.Adapter adapter) {
+    public RvOnListChangedCallback(ADAPTER adapter) {
         this.adapter = adapter;
     }
 
 
-    public void setAdapter(RecyclerView.Adapter adapter) {
+    public void setAdapter(ADAPTER adapter) {
         this.adapter = adapter;
     }
 

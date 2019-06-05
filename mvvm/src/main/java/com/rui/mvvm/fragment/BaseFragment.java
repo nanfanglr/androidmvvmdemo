@@ -9,12 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import dagger.android.support.HasSupportFragmentInjector;
-
 /**
  * Created by rui on 2017/10/31.
  */
-public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment implements HasSupportFragmentInjector {
+public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment {
     
     protected DB binding;
 

@@ -29,4 +29,9 @@ public interface ApiErrorCode {
      * 无网络连接
      */
     int ERROR_NO_INTERNET = 11;
+
+    /**
+     * 无网络连接
+     */
+    int ERROR_NO_DATA = 12;
 }

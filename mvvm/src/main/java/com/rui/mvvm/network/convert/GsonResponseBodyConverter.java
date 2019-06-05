@@ -38,7 +38,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
                 ResultModel resultModel = (ResultModel) data;
                 if (data instanceof ResultModel && !resultModel.isSuccess()) {
                     value.close();
-                    throw new ApiException(resultModel.getError(), resultModel.getMsg());
+                    throw new ApiException(((ResultModel) data).getError_code(), "服务暂不可用，请稍后重试！");
                 }
                 return data;
             } finally {

@@ -7,9 +7,6 @@ import java.io.Serializable;
  */
 public class BaseModel implements Serializable {
 
-    public boolean loadedImage;
-
-
     public int getInt(Long value) {
         if (value == null) return 0;
         return value.intValue();

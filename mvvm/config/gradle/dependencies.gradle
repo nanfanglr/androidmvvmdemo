@@ -182,5 +182,8 @@ ext.projectDependencies = [
 //        lifecycle_runtime                       : "android.arch.lifecycle:runtime:$versions.androidArch",
         lifecycle_extensions                    : "android.arch.lifecycle:extensions:$versions.androidArch",
         lifecycle_compiler                      : "android.arch.lifecycle:compiler:$versions.androidArch",
+        // https://github.com/hdodenhof/CircleImageView
+        circleimageview                         : "de.hdodenhof:circleimageview:$versions.circleimageview",
+        androidpickerView                    : "com.contrarywind:Android-PickerView:$versions.androidpickerView"
 
 ]

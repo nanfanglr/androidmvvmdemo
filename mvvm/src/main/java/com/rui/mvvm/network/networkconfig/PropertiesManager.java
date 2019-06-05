@@ -21,6 +21,10 @@ public class PropertiesManager {
 
     private final Properties properties;
     private boolean isDebug;
+    /**
+     * 接口返回的授权token
+     */
+    private String apiAutoToken;
 
     public PropertiesManager(AssetManager assetManager, boolean isDebug) {
         properties = new Properties();
@@ -39,15 +43,18 @@ public class PropertiesManager {
         }
     }
 
+    public String getApiAutoToken() {
+        return apiAutoToken == null ? "" : apiAutoToken;
+    }
+
+    public void setApiAutoToken(String apiAutoToken) {
+        this.apiAutoToken = apiAutoToken;
+    }
+
     public boolean isDebug() {
         return isDebug;
     }
 
-    public String getDribleClientAccessToken() {
-        @Nullable String authToken = properties.getProperty(Property.DRIBBLE_CLIENT_ACCESS_TOKEN.getPropertyKey());
-        Preconditions.checkNotNull(authToken);
-        return authToken;
-    }
 
     public String getBaseUrl() {
         @Nullable String baseUrl = isDebug ? properties.getProperty(Property.BASE_URL_DEV.getPropertyKey())

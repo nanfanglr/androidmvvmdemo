@@ -17,14 +17,14 @@ public class ApiErrorHelper {
     public static void handleCommonError(Context context, Throwable throwable) {
         if (throwable instanceof ConnectException) {
             Toast.makeText(context.getApplicationContext(),
-                    "无网络连接", Toast.LENGTH_SHORT).show();
+                    "无网络连接", Toast.LENGTH_LONG).show();
         } else if (throwable instanceof SocketTimeoutException) {
             Toast.makeText(context.getApplicationContext(),
-                    "服务连接超时", Toast.LENGTH_SHORT).show();
+                    "服务连接超时", Toast.LENGTH_LONG).show();
         } else if (throwable instanceof HttpException) {
             int code = ((HttpException) throwable).code();
             Toast.makeText(context.getApplicationContext(),
-                    String.format("服务不可用，请稍后重试(%d)", code), Toast.LENGTH_SHORT).show();
+                    String.format("服务不可用，请稍后重试(%d)", code), Toast.LENGTH_LONG).show();
         } else if (throwable instanceof ApiException) {
             //ApiException处理
             ApiException exception = (ApiException) throwable;
@@ -47,12 +47,12 @@ public class ApiErrorHelper {
 //                    break;
                 default:
                     Toast.makeText(context.getApplicationContext(),
-                            "Api未知错误", Toast.LENGTH_SHORT).show();
+                            "Api未知错误", Toast.LENGTH_LONG).show();
                     break;
             }
         } else {
             Toast.makeText(context.getApplicationContext(),
-                    "未知错误", Toast.LENGTH_SHORT).show();
+                    "未知错误", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -16,45 +16,27 @@ import timber.log.Timber;
  */
 public class AuthenticationInterceptor implements Interceptor {
 
-    private static final String AUTHORIZATION_HEADER_KEY = "Authorization";
-    private static final String AUTHORIZATION_HEADER_VALUE_WITH_PLACEHOLDER = "Bearer %s";
 
-    private static final String AUTHORIZATION_FAKE_HEADER_KEY = "Authentication";
-    private static final String AUTHORIZATION_FAKE_HEADER_VALUE = ": True";
-
-    /**
-     * Fake authorization header. Only added so that this interceptor replaces it with the correct auth key.
-     */
-    public static final String DO_AUTHENTICATION = AUTHORIZATION_FAKE_HEADER_KEY + AUTHORIZATION_FAKE_HEADER_VALUE;
+    private static final String API_AUTH_TOKEN = "api_auth_token";
 
     private final PropertiesManager propertiesManager;
 
     @Inject
     public AuthenticationInterceptor(PropertiesManager propertiesManager) {
-
         this.propertiesManager = propertiesManager;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-
+        Timber.d("----------->intercept");
         Request request = chain.request();
-
-        if (request.header(AUTHORIZATION_FAKE_HEADER_KEY) != null) {
-            Timber.d("Secure network request encountered. Adding authentication headers.");
-            request = request.newBuilder()
-                    .addHeader(AUTHORIZATION_HEADER_KEY,
-                            String.format(AUTHORIZATION_HEADER_VALUE_WITH_PLACEHOLDER, propertiesManager.getDribleClientAccessToken()))
-                    .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
-                    .addHeader("Accept-Encoding", "gzip, deflate")
-                    .addHeader("Connection", "keep-alive")
-                    .addHeader("Accept", "*/*")
-//                    .addHeader("syt_app_t", "android")
-//                    .addHeader("syt_app_v", AppUtils.getVersionName(application))
-//                    .addHeader("syt_m_id", GlobalValue.MB_ID)
-//                    .addHeader("syt_app_c", android.os.Build.SERIAL==null?"":android.os.Build.SERIAL)
-                    .build();
-        }
+        request = request.newBuilder()
+                .addHeader(API_AUTH_TOKEN, propertiesManager.getApiAutoToken())
+                .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .addHeader("Accept", "*/*")
+                .build();
         return chain.proceed(request);
     }
 

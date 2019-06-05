@@ -17,7 +17,7 @@ public class BaseResultModel extends BaseModel {
      * error : 0
      * page : 0
      */
-    public static int PAGE_LIMIT = 20;
+    public static int PAGE_LIMIT = 10;
     private String url;
     private int pageCount;
     private String relative_url;
@@ -26,7 +26,16 @@ public class BaseResultModel extends BaseModel {
     private String rows;
     private int total;
     private int error;
+    private int error_code;
     private int page;
+
+    public int getError_code() {
+        return error_code;
+    }
+
+    public void setError_code(int error_code) {
+        this.error_code = error_code;
+    }
 
     public String getUrl() {
         return url == null ? "" : url;
