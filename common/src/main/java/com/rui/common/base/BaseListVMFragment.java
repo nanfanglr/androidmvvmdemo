@@ -30,7 +30,7 @@ import javax.inject.Provider;
  */
 public abstract class BaseListVMFragment<
         DB extends ViewDataBinding
-        , VM extends BasePageViewModel
+        , VM extends BaseListViewModel
         , ADAPTER extends BaseQuickAdapter
         , LAYOUTMANAGER extends RecyclerView.LayoutManager
         , RVCB extends RvOnListChangedCallback
@@ -50,7 +50,7 @@ public abstract class BaseListVMFragment<
     /**
      * 响应列表变化去刷新数据的回调
      */
-    protected RvOnListChangedCallback rvOnListChangedCallback;
+    protected RVCB rvOnListChangedCallback;
 
     @Inject
     Provider<ADAPTER> adapterProvider;

@@ -5,6 +5,11 @@ package com.rui.common.constant;//package com.mvp.rui.androidmvpdemo.common.cons
  * Created by rui on 2018/3/9.
  */
 public interface APPValue {
+
+    String HTTP = "http://";
+    String HTTPS = "https://";
+    String FILE = "file://";
+
     /**
      * 第一次加载数据
      */
@@ -18,62 +23,86 @@ public interface APPValue {
      */
     int LOAD_MORE = 2;
 
-//    int PAGE_LIMIT = 20;
+//    int PAGE_LIMIT =10;
+
+    String SP_PHONE = "sp_phone";
+
+    int FUC_SPAN_COUNT = 3;
+
+    int FUC_SPACE = 5;
+
+    int CHARGE_SPAN_COUNT = 2;
+    int CHARGE_SPACE = 20;
+    /**
+     * 标记从main去搜索
+     */
+    int SEARCH_TYPE_MAIN_CASHER = 6;
+    /**
+     * 标记从main去搜索
+     */
+    int SEARCH_TYPE_MAIN_GIFT = 16;
+    /**
+     * 标记从收银页面去搜索
+     */
+    int SEARCH_TYPE_CASHIER = 7;
+    /**
+     * 收银商品扫描
+     */
+    int MAIN_SCAN_CASHIER = 2001;
+    /**
+     * 礼品核销扫描
+     */
+    int MAIN_SCAN_GIFT = 2002;
+    /**
+     * 会员信息扫描
+     */
+    int MAIN_SCAN_MEMBER = 2003;
+    int CHARGE_SCAN_MEMBER = 2013;
+    /**
+     * 会员信息扫描(退款页面)
+     */
+    int MAIN_SCAN_MEMBER_REFUND = 2010;
+    /**
+     *
+     */
+    int REUEST_SETTLE_PAY = 2004;
+    /**
+     * 选择优惠券的请求码
+     */
+    int REQUEST_COUPON = 2005;
+    /**
+     * 选择导购的请求码
+     */
+    int REQUEST_CLERK = 2006;
 
     /**
-     * DT-细节，对应主图多张,上传、数据解析时使用
+     * 从商品列表选择导购的请求码
      */
-    String IMG_MAIN = "DT";
+    int REQUEST_CLERK_PROD = 2010;
     /**
-     * CL-颜色，对应单张颜色图,上传、数据解析时使用
+     *
      */
-    String IMG_COLOR = "CL";
-    /**
-     * ZS-展示图，对应颜色下的多张细节图,上传、数据解析时使用
-     */
-    String IMG_COLOR_DTL = "ZS";
-    /**
-     * 对应主图视频,上传、数据解析时使用
-     * 视频缩略图默认路径为视频路径后缀将.mp4替换成.jpg
-     */
-    String VIDEO_MAIN = "DTSP";
-    /**
-     * 对应各颜色下详情视频,上传、数据解析时使用
-     * 视频缩略图默认路径为视频路径后缀将.mp4替换成.jpg
-     */
-    String VIDEO_DTL = "ZSSP";
-
-
-    String HTTP = "http://";
-    String HTTPS = "https://";
-    String FILE = "file://";
+    int REQUEST_SEARCH_PROD = 2007;
 
     /**
-     * 是否为本地图片，1为本地图片
+     * 礼品券扫描
      */
-    int PICTITURE_TYPE = 1;
+    int SCAN_GIFT_COUPON = 2008;
 
-    int HEAD_REQUESTCODE = 400;
-
-    int ITEM_REQUESTCODE = 403;
-
-    int RESULTCODE_HEAD_TAKEPHOTO = 105;
-
-    int RESULTCODE_ITEM_TAKEPHOTO = 107;
-
-    int RESULTCODE_COLOR_TAKEPHOTO = 111;
-
-    int RESULTCODE_DT_TAKEPHOTO = 112;
     /**
-     * 可选的最大图片数量
+     * POS退款的回调
      */
-    int MAX_IMG_NUM = 10;
+    int REQUEST_POS_REFUND = 3001;
+
     /**
-     * 在列表适配器中，分辨本地视频还是网络视频时使用
+     * 请求设备信息
      */
-    int NET_IMAGE = 31;
+    int REQUEST_DEVICE_INFO = 2009;
+
     /**
-     * 在列表适配器中，分辨本地视频还是网络视频时使用
+     * 云卓开发者账号
      */
-    int NET_VIDEO = 32;
+    String YUNZUO_DEV_ID = "YCFKlnSn";
+
+
 }

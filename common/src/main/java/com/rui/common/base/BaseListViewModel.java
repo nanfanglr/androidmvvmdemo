@@ -1,6 +1,5 @@
 package com.rui.common.base;
 
-import android.app.Application;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
@@ -8,6 +7,7 @@ import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
 import com.rui.common.constant.APPValue;
+import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.livedata.SingleLiveEvent;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
@@ -46,7 +46,7 @@ public abstract class BaseListViewModel<ITEM> extends BaseViewModel {
     /**
      * @param application ，getApplication()方法可以得到application
      */
-    public BaseListViewModel(@NonNull Application application) {
+    public BaseListViewModel(@NonNull BaseApplication application) {
         super(application);
     }
 
@@ -84,6 +84,8 @@ public abstract class BaseListViewModel<ITEM> extends BaseViewModel {
             if (aboolean) loadNoMoreData.set(false);
         } else if (loadRefresh == APPValue.LOAD_MORE) {
             finishLoadmore.set(aboolean);
+        } else if (loadRefresh == APPValue.LOAD_FIRST) {
+            dataLoading.setValue(!aboolean);
         }
     }
 

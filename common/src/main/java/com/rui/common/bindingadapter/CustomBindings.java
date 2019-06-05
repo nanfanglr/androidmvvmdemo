@@ -22,7 +22,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.rui.common.imageloader.ImageLoader;
@@ -32,6 +34,9 @@ import java.util.List;
 
 import timber.log.Timber;
 
+/**
+ * xml中自定义绑定属性
+ */
 public class CustomBindings {
     /**
      * ViewPager绑定
@@ -95,6 +100,18 @@ public class CustomBindings {
     }
 
     /**
+     * Glide加载图片
+     *
+     * @param imageView
+     * @param url
+     * @param timeStamp
+     */
+    @BindingAdapter(value = {"app:ivHeadUrl", "app:ivTimeStamp"}, requireAll = false)
+    public static void setImageHeadUri(ImageView imageView, String url, long timeStamp) {
+        ImageLoader.displayHeadImage(imageView.getContext(), url, imageView);
+    }
+
+    /**
      * View类的OnKeyListener绑定，
      * 因为在ViewBindingAdapter这个databinding类库中没有去实现这个方法
      *
@@ -105,6 +122,40 @@ public class CustomBindings {
     public static void setOnKeyListener(View view, View.OnKeyListener listener) {
         view.setOnKeyListener(listener);
     }
+
+    @BindingAdapter("android:src")
+    public static void setSrc(ImageView view, int resId) {
+        view.setImageResource(resId);
+    }
+
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, int text) {
+        view.setText(text + "");
+    }
+
+//    @BindingAdapter("android:text")
+//    public static void setText(EditText view, double text) {
+//        String str = String.format("%.02f", text);
+//        view.setText(str);
+//        view.setSelection(str.length());
+//    }
+
+    @BindingAdapter("app:etselection")
+    public static void setText(EditText view, int selection) {
+        Timber.d("----------->selection=" + selection);
+        view.requestFocus();
+        view.setSelection(selection);
+    }
+
+//    @InverseBindingAdapter(attribute = "android:text", event = "android:textAttrChanged")
+//    public static double getTextString(TextView view) {
+//        try {
+//            double aDouble = Double.parseDouble(view.getText().toString());
+//            return aDouble;
+//        } catch (Exception e) {
+//            return 0.00;
+//        }
+//    }
 
     /**
      * 下拉 上拉 加载效果完成

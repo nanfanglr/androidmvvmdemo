@@ -1,10 +1,11 @@
 package com.rui.common.base;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
+import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
 
 import com.rui.common.constant.APPValue;
+import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
 import com.rui.mvvm.network.basemodel.ResultModel;
 
@@ -20,6 +21,10 @@ import timber.log.Timber;
 public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
 
     /**
+     * 总数量
+     */
+    public ObservableInt total = new ObservableInt();
+    /**
      * 数据页码（第几页数据）
      */
     protected int page = 1;
@@ -28,10 +33,11 @@ public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
      */
     protected int sumPage;
 
+
     /**
      * @param application ，getApplication()方法可以得到application
      */
-    public BasePageViewModel(@NonNull Application application) {
+    public BasePageViewModel(@NonNull BaseApplication application) {
         super(application);
     }
 
@@ -47,23 +53,25 @@ public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
             loadNoMoreData.set(true);
             return;
         }
-        getDataOB().compose(singleTransformer(loadRefresh))
+        addSubscribe(getDataOB().compose(singleTransformer(loadRefresh))
                 .subscribe(listResultModel -> {
                     if (listResultModel.isSuccess()) {
-                        List<ITEM> data = listResultModel.getData();
+                        List<ITEM> data = listResultModel.getPageData().getList();
                         if (page == 1) {
                             items.clear();
                             items.addAll(data);
                         } else {
                             items.addAll(data);
                         }
+                        total.set(listResultModel.getTotal());
                         sumPage = listResultModel.getSumPage();
                         page++;
                         if (items.size() == 0) empty.call();
                     } else {
                         dataLoadingError.setValue(listResultModel.getMsg());
                     }
-                }, new ExceptionConsumer(getApplication()));
+                }, new ExceptionConsumer(getApplication()))
+        );
     }
 
     public abstract Single<ResultModel<ITEM>> getDataOB();

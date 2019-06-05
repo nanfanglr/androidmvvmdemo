@@ -2,16 +2,21 @@ package com.rui.common.oss;
 
 import android.text.TextUtils;
 
+import com.rui.common.BuildConfig;
+
 /**
  * Created by linet on 16/1/27.
  */
 public class ImageHelper {
 
-
     public static final String HTTP = "http://";
     public static final String HTTPS = "https://";
     public static final String FILE = "file://";
-    public static String OSS_HOST = "http://kf-img.oss-cn-beijing.aliyuncs.com";
+
+    private static final String BUCKET_NAME_PRODUCT = "http://xxxxxx.oss-cn-beijing.aliyuncs.com";
+
+    private static final String BUCKET_NAME_DEV = "http://xxxxxx.oss-cn-beijing.aliyuncs.com";
+    public static String OSS_HOST = BuildConfig.DEBUG ? BUCKET_NAME_DEV : BUCKET_NAME_PRODUCT;
 
     public static String addImageDomain(String url) {
         if (TextUtils.isEmpty(url)) {
@@ -40,7 +45,7 @@ public class ImageHelper {
             return url;
         }
 
-        return "https://b2b-oss.oss-cn-beijing.aliyuncs.com/" + url;
+        return "https://xxxxxx.oss-cn-beijing.aliyuncs.com/" + url;
     }
 
     /**
