@@ -11,6 +11,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * 提供安卓系统相关对象
  * Created by rui on 2018/3/9.
  */
 @Module

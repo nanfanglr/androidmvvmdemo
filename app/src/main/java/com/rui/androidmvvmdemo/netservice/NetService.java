@@ -10,6 +10,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
+ * retrofit这里定义接口
  * Created by rui on 2019/2/12
  */
 public interface NetService {

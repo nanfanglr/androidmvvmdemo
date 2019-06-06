@@ -17,10 +17,10 @@ import dagger.android.AndroidInjectionModule;
 import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
+ * 这里全局ApplicationComponent注入
  * Created by rui on 2019/2/12
  */
 @Singleton
-
 @Component(modules = {
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
@@ -31,7 +31,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ViewModelFactoryModule.class,
         SingletonModule.class
 })
-
 public interface ApplicationComponent {
 
     void inject(App application);

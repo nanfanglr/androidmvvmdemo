@@ -10,7 +10,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 
 /**
- * 专门提供全局唯一对象的module
+ * 专门提供全局唯一对象，即：单例
  * Created by rui on 2019/2/13
  */
 @Module

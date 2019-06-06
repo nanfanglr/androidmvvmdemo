@@ -18,6 +18,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
+ * 提供网络相关对象
  * Created by rui on 2018/3/9.
  */
 @Module

@@ -14,8 +14,17 @@ import javax.inject.Provider;
  * MVVM ViewModelFactory
  */
 public class ViewModelFactory implements ViewModelProvider.Factory {
+
+    /**
+     * ViewModel的Map集合，这个Map是通过dagger注解@IntoMap去生成的
+     */
     private final Map<Class<? extends ViewModel>, Provider<ViewModel>> creators;
 
+    /**
+     * 构造方法
+     *
+     * @param creators 这个参数是在DaggerApplicationComponent中有生成，通过module @IntoMap ViewModel去生成的
+     */
     @Inject
     public ViewModelFactory(Map<Class<? extends ViewModel>, Provider<ViewModel>> creators) {
         this.creators = creators;

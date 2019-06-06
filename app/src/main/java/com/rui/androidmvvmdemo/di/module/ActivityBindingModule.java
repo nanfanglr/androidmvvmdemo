@@ -5,6 +5,8 @@ import dagger.Module;
 
 
 /**
+ * activity注入器，提供activity所需要的注入对象
+ * 可以理解为：新activity都需要到这里注册,以便获取需要的注入对象
  * Created by rui on 2019/2/13.
  */
 @Module
