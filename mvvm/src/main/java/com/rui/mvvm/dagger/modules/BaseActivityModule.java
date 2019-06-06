@@ -14,6 +14,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * ActivityModule基础类
  * Provides base activity dependencies. This must be included in all activity modules, which must
  * provide a concrete implementation of {@link Activity}.
  */
@@ -21,6 +22,13 @@ import dagger.Provides;
 public abstract class BaseActivityModule {
 
     public static final String ACTIVITY_FRAGMENT_MANAGER = "BaseActivityModule.activityFragmentManager";
+
+    @Provides
+    @Named(ACTIVITY_FRAGMENT_MANAGER)
+    @ActivityScope
+    static FragmentManager activityFragmentManager(FragmentActivity activity) {
+        return activity.getSupportFragmentManager();
+    }
 
     @Binds
     @ActivityScope
@@ -34,11 +42,4 @@ public abstract class BaseActivityModule {
      * at what is being provided in order to understand its scope.
      */
     abstract Context activityContext(FragmentActivity activity);
-
-    @Provides
-    @Named(ACTIVITY_FRAGMENT_MANAGER)
-    @ActivityScope
-    static FragmentManager activityFragmentManager(FragmentActivity activity) {
-        return activity.getSupportFragmentManager();
-    }
 }

@@ -13,6 +13,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * 全局application级别单例
  * Created by rui on 2018/3/9.
  */
 @Module

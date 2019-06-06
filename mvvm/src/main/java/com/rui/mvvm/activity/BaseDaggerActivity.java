@@ -45,14 +45,6 @@ public abstract class BaseDaggerActivity<DB extends ViewDataBinding>
         super.onCreate(savedInstanceState);
     }
 
-    /**
-     * 初始化view
-     *
-     * @param savedInstanceState
-     * @return
-     */
-    protected abstract int getLayoutID(Bundle savedInstanceState);
-
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return supportFragmentInjector;

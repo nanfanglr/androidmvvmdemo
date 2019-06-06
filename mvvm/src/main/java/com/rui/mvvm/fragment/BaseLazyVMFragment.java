@@ -119,7 +119,6 @@ public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends 
         return "";
     }
 
-    ;
 
     /**
      * 加载错误统一提示，如果不需要就重写此方法
@@ -148,14 +147,6 @@ public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
-
-    /**
-     * 初始化view
-     *
-     * @param savedInstanceState
-     * @return
-     */
-    protected abstract int getLayoutID(Bundle savedInstanceState);
 
     /**
      * 获取ViewModelClass

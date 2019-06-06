@@ -129,9 +129,7 @@ public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends Base
         super.onDestroy();
     }
 
-    public void backClick(View v) {
-        finish();
-    }
+
 
 
 }

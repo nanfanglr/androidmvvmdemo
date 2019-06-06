@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import javax.annotation.Nullable;
 
@@ -33,4 +34,8 @@ public abstract class BaseAppCompatActivity<DB extends ViewDataBinding>
      * @return
      */
     protected abstract int getLayoutID(Bundle savedInstanceState);
+
+    public void backClick(View v) {
+        finish();
+    }
 }
