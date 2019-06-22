@@ -1,6 +1,7 @@
 package com.rui.androidmvvmdemo.di.module;
 
 
+import com.rui.androidmvvmdemo.di.repository.UserInfoRepository;
 import com.rui.androidmvvmdemo.netservice.NetService;
 
 import javax.inject.Singleton;
@@ -26,12 +27,12 @@ public final class SingletonModule {
         return retrofit.create(NetService.class);
     }
 
-//
-//    @Provides
-//    @Singleton
-//    static UserInfoRepository providesUserInfoRepository() {
-//        return new UserInfoRepository();
-//    }
+
+    @Provides
+    @Singleton
+    static UserInfoRepository providesUserInfoRepository(NetService netService) {
+        return new UserInfoRepository(netService);
+    }
 
 
 //    @Provides

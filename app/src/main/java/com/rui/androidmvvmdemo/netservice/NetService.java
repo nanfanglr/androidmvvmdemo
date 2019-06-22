@@ -1,5 +1,6 @@
 package com.rui.androidmvvmdemo.netservice;
 
+import com.rui.androidmvvmdemo.model.UserModel;
 import com.rui.mvvm.network.basemodel.ResultModel;
 
 import io.reactivex.Single;
@@ -24,7 +25,7 @@ public interface NetService {
      */
     @FormUrlEncoded
     @POST("login")
-    Single<ResultModel> login(
+    Single<ResultModel<UserModel>> login(
             @Field("userKey") String userKey,
             @Field("userPswd") String userPswd);
 

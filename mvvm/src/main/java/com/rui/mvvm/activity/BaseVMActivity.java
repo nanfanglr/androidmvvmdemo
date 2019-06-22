@@ -7,7 +7,6 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Toast;
 
 import com.rui.mvvm.BR;
@@ -128,8 +127,6 @@ public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends Base
     protected void onDestroy() {
         super.onDestroy();
     }
-
-
 
 
 }
