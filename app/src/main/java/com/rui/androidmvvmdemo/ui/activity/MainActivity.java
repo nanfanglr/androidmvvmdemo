@@ -27,14 +27,26 @@ public class MainActivity extends BaseVMActivity<ActivityMainBinding, MainViewMo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initView();
         initVM();
         initOB();
     }
+    private void initView() {
+        binding.tabLayout.setupWithViewPager(binding.vpContainer);
+    }
+
     private void initVM() {
         fgPagerAdapter.setFragmentList(viewModel.items);
         binding.setFgPagerAdapter(fgPagerAdapter);
         viewModel.addPage();
     }
+
+    @Override
+    protected void onDestroy() {
+        viewModel.items.clear();
+        super.onDestroy();
+    }
+
 
     protected void initOB() {
         viewModel.finishAct.observe(this, aVoid -> finish());

@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.rui.androidmvvmdemo.ui.fragment.ProductImgFragment;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.livedata.SingleLiveEvent;
 import com.rui.mvvm.viewmodel.BaseViewModel;
@@ -45,6 +46,13 @@ public class MainViewModel extends BaseViewModel {
      */
     @Inject
     public Subject<String> subject;
+    /**
+     * 点击事件退出示例1
+     */
+    public View.OnClickListener listener = v -> {
+        finishAct.call();
+        Toast.makeText(getApplication(), "onClick!", Toast.LENGTH_SHORT).show();
+    };
 
     /**
      * @param application ，getApplication()方法可以得到application
@@ -55,9 +63,10 @@ public class MainViewModel extends BaseViewModel {
     }
 
     public void addPage() {
-//        items.add(ProductImgFragment.newInstance(getApplication(), "F", "无图商品"));
-//        items.add(ProductImgFragment.newInstance(getApplication(), "T", "有图商品"));
+        items.add(ProductImgFragment.newInstance(getApplication(), "F", "无图商品"));
+        items.add(ProductImgFragment.newInstance(getApplication(), "T", "有图商品"));
     }
+
     /**
      * 点击事件退出示例2
      */
@@ -65,14 +74,6 @@ public class MainViewModel extends BaseViewModel {
         finishAct.call();
         Toast.makeText(getApplication(), view.getContext().getClass().getSimpleName(), Toast.LENGTH_SHORT).show();
     }
-
-    /**
-     * 点击事件退出示例1
-     */
-    public View.OnClickListener listener = v -> {
-        finishAct.call();
-        Toast.makeText(getApplication(), "onClick!", Toast.LENGTH_SHORT).show();
-    };
 
     public boolean onSearch(View v, int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
@@ -83,6 +84,7 @@ public class MainViewModel extends BaseViewModel {
         }
         return false;
     }
+    
     /**
      * 清楚输入的搜索关键词
      */
