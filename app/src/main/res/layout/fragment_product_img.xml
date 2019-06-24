@@ -23,7 +23,6 @@
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         app:finishLoadmore="@{viewModel.finishLoadmore}"
         app:finishRefreshing="@{viewModel.finishRefreshing}"
         app:loadNoMoreData="@{viewModel.loadNoMoreData}">

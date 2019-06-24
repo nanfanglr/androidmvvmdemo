@@ -84,7 +84,7 @@ public class MainViewModel extends BaseViewModel {
         }
         return false;
     }
-    
+
     /**
      * 清楚输入的搜索关键词
      */
