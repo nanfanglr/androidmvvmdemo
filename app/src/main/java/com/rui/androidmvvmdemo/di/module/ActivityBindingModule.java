@@ -2,6 +2,7 @@ package com.rui.androidmvvmdemo.di.module;
 
 
 import com.rui.androidmvvmdemo.ui.activity.LoginActivity;
+import com.rui.androidmvvmdemo.ui.activity.MainActivity;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 
 import dagger.Module;
@@ -20,10 +21,10 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = LoginModule.class)
     abstract LoginActivity loginActivityInjector();
 
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = MainModule.class)
-//    abstract MainActivity mainActivityActivityInjector();
-//
+    @ActivityScope
+    @ContributesAndroidInjector(modules = MainModule.class)
+    abstract MainActivity mainActivityActivityInjector();
+
 //    @ActivityScope
 //    @ContributesAndroidInjector(modules = SearchProModule.class)
 //    abstract SearchProActivity searchProActivityActivityInjector();
