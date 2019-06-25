@@ -35,8 +35,6 @@ public abstract class ProductImgFgModule {
 
     @Provides
     static RvOnListChangedCallback providesRvOnListChangedCallback() {
-        //这里不用通过构造将adapter传过来，而是通过set方法去设置
-        // 因为这里构造传过去的与xml中绑定的adapter对象不是同一个
         return new RvOnListChangedCallback();
     }
 

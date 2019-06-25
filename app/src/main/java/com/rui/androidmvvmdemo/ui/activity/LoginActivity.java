@@ -6,9 +6,9 @@ import android.os.Bundle;
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.databinding.ActivityLoginBinding;
 import com.rui.androidmvvmdemo.di.viewmodel.LoginViewModel;
-import com.rui.mvvm.activity.BaseVMActivity;
+import com.rui.common.base.BaseTranActivity;
 
-public class LoginActivity extends BaseVMActivity<ActivityLoginBinding, LoginViewModel> {
+public class LoginActivity extends BaseTranActivity<ActivityLoginBinding, LoginViewModel> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

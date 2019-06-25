@@ -1,5 +1,7 @@
 package com.rui.androidmvvmdemo.di.repository;
 
+import android.text.TextUtils;
+
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.netservice.NetService;
 import com.rui.mvvm.network.basemodel.ResultModel;
@@ -40,7 +42,11 @@ public class ProductRepository {
                 model.setProd_NUM("prod_NAME" + page + i);
                 model.setProd_NAME("女长裤(铅笔裤)" + page + i);
                 model.setRack_RATE(100 + i);
-                model.setImg_URL("https://ww1.sinaimg.cn/large/0065oQSqly1ftf1snjrjuj30se10r1kx.jpg");
+                if (TextUtils.isEmpty(keyWord) && TextUtils.equals("T", dataType)) {
+                    model.setImg_URL("https://ww1.sinaimg.cn/large/0065oQSqly1ftf1snjrjuj30se10r1kx.jpg");
+                } else if (TextUtils.equals("T", dataType)) {
+                    model.setImg_URL("https://ww1.sinaimg.cn/large/0065oQSqly1ftzsj15hgvj30sg15hkbw.jpg");
+                }
                 list.add(model);
             }
             pageData.setList(list);

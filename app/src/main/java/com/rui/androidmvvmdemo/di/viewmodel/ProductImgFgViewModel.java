@@ -45,6 +45,10 @@ public class ProductImgFgViewModel extends BasePageViewModel {
         return repository.getProducts(dataType, TextUtils.isEmpty(searchKeyWord) ? null : searchKeyWord, page);
     }
 
+    /**
+     * 设置数据类型
+     * @param dataType
+     */
     public void setDataType(String dataType) {
         this.dataType = dataType;
     }

@@ -10,11 +10,11 @@ import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.databinding.ActivityMainBinding;
 import com.rui.androidmvvmdemo.di.viewmodel.MainViewModel;
 import com.rui.androidmvvmdemo.ui.adapter.FgPagerAdapter;
-import com.rui.mvvm.activity.BaseVMActivity;
+import com.rui.common.base.BaseTranActivity;
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseVMActivity<ActivityMainBinding, MainViewModel> {
+public class MainActivity extends BaseTranActivity<ActivityMainBinding, MainViewModel> {
 
     @Inject
     FgPagerAdapter fgPagerAdapter;
