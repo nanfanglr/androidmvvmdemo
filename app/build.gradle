@@ -89,6 +89,10 @@ dependencies {
     implementation project(':viewkit')
     implementation project(':toolkit')
 
+    implementation(projectDependencies.PictureSelector) {
+        exclude group: 'com.github.bumptech.glide'
+    }
+
     //Dagger2
     //    implementation projectDependencies.dagger
     annotationProcessor projectDependencies.daggerAnnotationProcessor

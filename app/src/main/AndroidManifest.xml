@@ -13,6 +13,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.activity.ProductDtlActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.activity.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
@@ -26,7 +29,6 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-
     </application>
 
 </manifest>

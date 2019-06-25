@@ -14,6 +14,7 @@ import com.rui.androidmvvmdemo.databinding.FragmentProductImgBinding;
 import com.rui.androidmvvmdemo.di.viewmodel.MainViewModel;
 import com.rui.androidmvvmdemo.di.viewmodel.ProductImgFgViewModel;
 import com.rui.androidmvvmdemo.model.ProductModel;
+import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
 import com.rui.common.adapter.BaseRvAdapter;
 import com.rui.common.base.BaseListVMFragment;
 import com.rui.common.constant.APPValue;
@@ -80,11 +81,9 @@ public class ProductImgFragment extends BaseListVMFragment<
     private void initRVClick() {
         adapter.setOnItemClickListener((adapter, view1, position) -> {
             ProductModel clickItem = (ProductModel) adapter.getData().get(position);
-//            viewModel.setClickItem(clickItem);
             int proId = clickItem.getProd_ID();
-//            UploadActivity.actionStart(getActivity(), proId, null);
+            ProductDtlActivity.actionStart(getActivity(), proId, null);
         });
-
     }
 
     @Override

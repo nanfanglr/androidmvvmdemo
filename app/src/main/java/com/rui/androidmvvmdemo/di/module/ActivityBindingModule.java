@@ -3,6 +3,7 @@ package com.rui.androidmvvmdemo.di.module;
 
 import com.rui.androidmvvmdemo.ui.activity.LoginActivity;
 import com.rui.androidmvvmdemo.ui.activity.MainActivity;
+import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 
 import dagger.Module;
@@ -25,14 +26,14 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = MainModule.class)
     abstract MainActivity mainActivityActivityInjector();
 
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = SearchProModule.class)
-//    abstract SearchProActivity searchProActivityActivityInjector();
-//
+    @ActivityScope
+    @ContributesAndroidInjector(modules = ProductDtlModule.class)
+    abstract ProductDtlActivity productDtlActivityInjector();
+
 //    @ActivityScope
 //    @ContributesAndroidInjector(modules = ShiftModule.class)
 //    abstract ShiftActivity ShiftActivityActivityInjector();
-//
+
 //    @ActivityScope
 //    @ContributesAndroidInjector(modules = CasherModule.class)
 //    abstract CasherActivity casherActivityActivityInjector();
