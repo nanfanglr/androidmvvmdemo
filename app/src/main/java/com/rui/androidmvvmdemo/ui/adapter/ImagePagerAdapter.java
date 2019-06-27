@@ -11,16 +11,23 @@ import com.rui.androidmvvmdemo.model.ColorModel;
 import com.rui.common.imageloader.ImageLoader;
 import com.rui.common.oss.ImageHelper;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by rui on 2019/6/25
  */
 public class ImagePagerAdapter extends PagerAdapter {
     public int rvItemPos;
-    private List<LocalMedia> imgs;
+    public List<LocalMedia> imgs;
     private ColorModel colorModel;
 
+    @Inject
+    public ImagePagerAdapter() {
+        imgs = new ArrayList<>();
+    }
 
     public ImagePagerAdapter(int rvItemPos, ColorModel colorModel) {
         this.imgs = colorModel.localZSImgs;
@@ -43,8 +50,8 @@ public class ImagePagerAdapter extends PagerAdapter {
         if (mineType == PictureMimeType.ofImage()) {
             ImageLoader.displayImage(container.getContext(), path, imageView);
         } else {
-            ImageLoader.displayImage(container.getContext(), ImageHelper.addImageDomain(path)
-                    , imageView, colorModel.getCreatTime());
+            ImageLoader.displayImage(container.getContext(), ImageHelper.addImageDomain(path), imageView
+                    , localMedia.getDuration());
         }
         container.addView(imageView);
         return imageView;

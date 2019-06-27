@@ -2,8 +2,11 @@ package com.rui.androidmvvmdemo.di.viewmodel;
 
 import android.databinding.ObservableDouble;
 import android.databinding.ObservableField;
+import android.databinding.ObservableInt;
+import android.databinding.ObservableList;
 import android.support.annotation.NonNull;
 
+import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.androidmvvmdemo.di.repository.ProductRepository;
 import com.rui.androidmvvmdemo.model.ColorModel;
 import com.rui.androidmvvmdemo.model.ProductDtlModel;
@@ -18,17 +21,21 @@ import javax.inject.Inject;
  */
 public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
     @Inject
-    ObservableField<String> prodName;
+    public ObservableInt headCurrentPos;
+    @Inject
+    public ObservableList<LocalMedia> headImgs;
     @Inject
     public ObservableField<String> productNum;
-    @Inject
-    ObservableDouble prodPrice;
-    @Inject
-    ProductRepository repository;
     /**
      * 商品id
      */
     public int prodId;
+    @Inject
+    public ObservableField<String> prodName;
+    @Inject
+    public ObservableDouble prodPrice;
+    @Inject
+    ProductRepository repository;
 
     /**
      * @param application ，getApplication()方法可以得到application
@@ -46,7 +53,7 @@ public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
                     if (productModelResultModel.isSuccess()) {
                         ProductDtlModel obj = productModelResultModel.getObj();
                         if (obj != null) {
-//                            this.imgsDT.addAll(obj.getImgsDT());
+                            this.headImgs.addAll(obj.getImgsDT());
                             this.items.addAll(obj.getColors());
                             this.prodName.set(obj.getProd_NAME());
                             this.productNum.set(obj.getProd_NUM());

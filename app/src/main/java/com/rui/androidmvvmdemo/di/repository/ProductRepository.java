@@ -70,6 +70,16 @@ public class ProductRepository {
             model.setProd_NAME("女长裤(铅笔裤)");
             model.setProd_NUM("B8VB1786");
             model.setRack_RATE(199);
+
+            List<LocalMedia> list0 = new ArrayList<>();
+            list0.add(getLocalMedia("https://ws1.sinaimg.cn/large/0065oQSqly1fuh5fsvlqcj30sg10onjk.jpg",
+                    System.currentTimeMillis(), APPValue.NET_IMAGE));
+            list0.add(getLocalMedia("https://ws1.sinaimg.cn/large/0065oQSqly1fuo54a6p0uj30sg0zdqnf.jpg",
+                    System.currentTimeMillis(), APPValue.NET_IMAGE));
+            list0.add(getLocalMedia("https://ww1.sinaimg.cn/large/0065oQSqly1fszxi9lmmzj30f00jdadv.jpg",
+                    System.currentTimeMillis(), APPValue.NET_IMAGE));
+            model.setImgsDT(list0);
+
             List<ColorModel> list = new ArrayList<>();
             for (int i = 0; i < 3; i++) {
                 ColorModel color = new ColorModel();
