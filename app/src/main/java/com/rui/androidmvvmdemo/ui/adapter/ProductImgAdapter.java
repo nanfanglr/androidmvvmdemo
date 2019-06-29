@@ -1,5 +1,6 @@
 package com.rui.androidmvvmdemo.ui.adapter;
 
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
@@ -17,7 +18,8 @@ import javax.inject.Inject;
  * Created by rui on 2019/6/25
  */
 public class ProductImgAdapter extends BaseRvAdapter<ColorModel> {
-
+    @Inject
+    FragmentActivity activity;
 
     @Inject
     public ProductImgAdapter() {
@@ -31,7 +33,7 @@ public class ProductImgAdapter extends BaseRvAdapter<ColorModel> {
                 .addOnClickListener(R.id.item_camera_right);
 
         ItemProductDtlBinding binding = (ItemProductDtlBinding) helper.getBinding();
-        ImagePagerAdapter itemImageAdapter = new ImagePagerAdapter(helper.getAdapterPosition(), item);
+        ImagePagerAdapter itemImageAdapter = new ImagePagerAdapter(activity,helper.getAdapterPosition(), item);
         binding.setAdapter(itemImageAdapter);
         item.localZSImgs.addOnListChangedCallback(new VPOnListChangedCallback<>(itemImageAdapter));
         binding.setItemViewModel(item);

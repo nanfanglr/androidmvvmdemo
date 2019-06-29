@@ -1,5 +1,6 @@
 package com.rui.androidmvvmdemo.ui.adapter;
 
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.androidmvvmdemo.model.ColorModel;
+import com.rui.androidmvvmdemo.ui.activity.EditImagesActivity;
 import com.rui.common.imageloader.ImageLoader;
 import com.rui.common.oss.ImageHelper;
 
@@ -21,7 +23,9 @@ import javax.inject.Inject;
  */
 public class ImagePagerAdapter extends PagerAdapter {
     public int rvItemPos;
-    public List<LocalMedia> imgs;
+    public ArrayList<LocalMedia> imgs;
+    @Inject
+    FragmentActivity activity;
     private ColorModel colorModel;
 
     @Inject
@@ -29,10 +33,16 @@ public class ImagePagerAdapter extends PagerAdapter {
         imgs = new ArrayList<>();
     }
 
-    public ImagePagerAdapter(int rvItemPos, ColorModel colorModel) {
+    public ImagePagerAdapter(FragmentActivity activity, int rvItemPos, ColorModel colorModel) {
         this.imgs = colorModel.localZSImgs;
         this.rvItemPos = rvItemPos;
         this.colorModel = colorModel;
+        this.activity = activity;
+    }
+
+    public void setSelectList(List<LocalMedia> selectList) {
+        this.imgs = (ArrayList<LocalMedia>) selectList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -53,6 +63,9 @@ public class ImagePagerAdapter extends PagerAdapter {
             ImageLoader.displayImage(container.getContext(), ImageHelper.addImageDomain(path), imageView
                     , localMedia.getDuration());
         }
+        imageView.setOnClickListener(v -> {
+            EditImagesActivity.actionStart(activity, imgs, position, rvItemPos, 110);
+        });
         container.addView(imageView);
         return imageView;
     }

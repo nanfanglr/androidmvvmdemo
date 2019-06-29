@@ -132,8 +132,7 @@ public class ProductDtlActivity extends BasePageVMActivity<
     private View getHeader() {
         RvHeadBinding binding = DataBindingUtil.inflate(LayoutInflater.from(getApplicationContext())
                 , R.layout.rv_head, null, false);
-        headImageAdapter.imgs = viewModel.headImgs;
-//        headImageAdapter.setListener(this);
+        headImageAdapter.setSelectList(viewModel.headImgs);
         binding.setViewModel(viewModel);
         binding.setAdapter(headImageAdapter);
 

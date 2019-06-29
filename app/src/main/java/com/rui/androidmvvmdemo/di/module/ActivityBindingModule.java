@@ -1,6 +1,7 @@
 package com.rui.androidmvvmdemo.di.module;
 
 
+import com.rui.androidmvvmdemo.ui.activity.EditImagesActivity;
 import com.rui.androidmvvmdemo.ui.activity.LoginActivity;
 import com.rui.androidmvvmdemo.ui.activity.MainActivity;
 import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
@@ -30,77 +31,9 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = ProductDtlModule.class)
     abstract ProductDtlActivity productDtlActivityInjector();
 
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = ShiftModule.class)
-//    abstract ShiftActivity ShiftActivityActivityInjector();
-
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = CasherModule.class)
-//    abstract CasherActivity casherActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = ClerksModule.class)
-//    abstract ClerksActivity clerksActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = SettleAccModule.class)
-//    abstract SettleAccActivity settleAccActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = SuccessPayModule.class)
-//    abstract SuccessPayActivity successPayActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = CouponsModule.class)
-//    abstract CouponsActivity couponsActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = GiftCheckModule.class)
-//    abstract GiftCheckActivity giftCheckActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = RefundsModule.class)
-//    abstract RefundsActivity refundsActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = RefundDtlModule.class)
-//    abstract RefundDtlActivity refundDtlActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = RefundSearchModule.class)
-//    abstract RefundSearchActivity refundSearchActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = OrdersModule.class)
-//    abstract OrdersActivity ordersActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = OrderSearchModule.class)
-//    abstract OrderSearchActivity orderSearchActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = OrderDtlModule.class)
-//    abstract OrderDtlActivity orderDtlActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = PerformanceModule.class)
-//    abstract PerformanceActivity performanceActivityActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = BusinessDtlModule.class)
-//    abstract BusinessDtlActivity businessDtlActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = RankingModule.class)
-//    abstract RankingActivity rankingActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = RefundMemModule.class)
-//    abstract RefundMemActivity refundMemActivityInjector();
-//
-//    @ActivityScope
-//    @ContributesAndroidInjector(modules = ChargeModule.class)
-//    abstract ChargeActivity chargeActivityInjector();
+    @ActivityScope
+    @ContributesAndroidInjector(modules = EditImagesModule.class)
+    abstract EditImagesActivity editImagesActivityInjector();
 
 
 }

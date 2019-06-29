@@ -94,7 +94,7 @@ public class ImageLoader {
     public static void displayImage(Context context, String url, ImageView imageView, long timeStamp) {
         displayImageBase(context, url, imageView,
                 getOption(R.drawable.img_loading, R.drawable.error, R.drawable.default_img, timeStamp + ""));
-        ;
+
     }
 
     /**
