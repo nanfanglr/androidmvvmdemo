@@ -33,7 +33,9 @@
             app:leftImgRes="@drawable/black_return"
             app:rightText="提交"
             app:rightTextColor="@android:color/black"
-            app:titleText="商品图上传" />
+            app:titleText="商品图上传"
+            app:tvRightOnclickListener="@{()->viewModel.saveProductImg()}"
+            app:tvRightVisible="@{viewModel.isShowCommit}" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_data"

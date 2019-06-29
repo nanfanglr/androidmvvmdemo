@@ -3,6 +3,7 @@ package com.rui.androidmvvmdemo.di.module;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.databinding.ObservableArrayList;
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableDouble;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
@@ -42,6 +43,11 @@ public abstract class ProductDtlModule {
     @Provides
     static ObservableField<String> providesObservableFieldString() {
         return new ObservableField<String>();
+    }
+
+    @Provides
+    static ObservableBoolean providesObservableBoolean() {
+        return new ObservableBoolean();
     }
 
     @Provides

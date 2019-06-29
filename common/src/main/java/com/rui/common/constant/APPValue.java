@@ -32,4 +32,20 @@ public interface APPValue {
      */
     int NET_IMAGE = 31;
 
+    int HEAD_REQUESTCODE = 400;
+
+    int ITEM_REQUESTCODE = 403;
+
+    int RESULTCODE_HEAD_TAKEPHOTO = 105;
+
+    int RESULTCODE_ITEM_TAKEPHOTO = 107;
+
+    int RESULTCODE_COLOR_TAKEPHOTO = 111;
+
+    int RESULTCODE_DT_TAKEPHOTO = 112;
+    /**
+     * 可选的最大图片数量
+     */
+    int MAX_IMG_NUM = 10;
+
 }

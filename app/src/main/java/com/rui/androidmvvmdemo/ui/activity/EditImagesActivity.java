@@ -93,7 +93,7 @@ public class EditImagesActivity extends BasePageVMActivity<
         vpOnListChangedCallback.setAdapter(mainImageAdapter);
         viewModel.items.addOnListChangedCallback(vpOnListChangedCallback);
 
-        mainImageAdapter.imgs.addAll(viewModel.items) ;
+        mainImageAdapter.setSelectList(viewModel.items); ;
         ViewGroup.LayoutParams layoutParams = binding.pagerMain.getLayoutParams();
         layoutParams.height = DisplayUtils.getScreenWidthAndHight(this.getApplicationContext())[0];
         binding.pagerMain.setLayoutParams(layoutParams);

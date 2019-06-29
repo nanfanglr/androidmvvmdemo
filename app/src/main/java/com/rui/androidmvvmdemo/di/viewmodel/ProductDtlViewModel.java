@@ -1,5 +1,6 @@
 package com.rui.androidmvvmdemo.di.viewmodel;
 
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableDouble;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
@@ -13,6 +14,7 @@ import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
+import com.souyute.toolkit.ToastUtils;
 
 import javax.inject.Inject;
 
@@ -21,11 +23,15 @@ import javax.inject.Inject;
  */
 public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
     @Inject
+    public ObservableInt rvClickPos;
+    @Inject
     public ObservableInt headCurrentPos;
     @Inject
     public ObservableList<LocalMedia> headImgs;
     @Inject
     public ObservableField<String> productNum;
+    @Inject
+    public ObservableBoolean isShowCommit;
     /**
      * 商品id
      */
@@ -65,5 +71,9 @@ public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
                         dataLoadingError.setValue(productModelResultModel.getMsg());
                     }
                 }, new ExceptionConsumer(getApplication())));
+    }
+
+    public void saveProductImg() {
+        ToastUtils.showToast(getApplication(), "上传图片");
     }
 }

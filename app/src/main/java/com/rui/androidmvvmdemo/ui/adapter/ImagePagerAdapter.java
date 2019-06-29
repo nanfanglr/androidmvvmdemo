@@ -22,10 +22,10 @@ import javax.inject.Inject;
  * Created by rui on 2019/6/25
  */
 public class ImagePagerAdapter extends PagerAdapter {
-    public int rvItemPos;
-    public ArrayList<LocalMedia> imgs;
     @Inject
     FragmentActivity activity;
+    private ArrayList<LocalMedia> imgs;
+    private int rvItemPos;
     private ColorModel colorModel;
 
     @Inject
@@ -54,6 +54,9 @@ public class ImagePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LocalMedia localMedia = imgs.get(position);
         ImageView imageView = new ImageView(container.getContext());
+        imageView.setOnClickListener(v -> {
+            EditImagesActivity.actionStart(activity, imgs, position, rvItemPos, 110);
+        });
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         String path = localMedia.getCompressPath();
         int mineType = localMedia.getMimeType();
@@ -63,9 +66,6 @@ public class ImagePagerAdapter extends PagerAdapter {
             ImageLoader.displayImage(container.getContext(), ImageHelper.addImageDomain(path), imageView
                     , localMedia.getDuration());
         }
-        imageView.setOnClickListener(v -> {
-            EditImagesActivity.actionStart(activity, imgs, position, rvItemPos, 110);
-        });
         container.addView(imageView);
         return imageView;
     }
