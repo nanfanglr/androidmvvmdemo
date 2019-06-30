@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.chad.library.adapter.base.listener.OnItemDragListener;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.databinding.ActivityEditImagesBinding;
@@ -20,11 +22,13 @@ import com.rui.androidmvvmdemo.di.viewmodel.EditImagesViewModel;
 import com.rui.androidmvvmdemo.ui.adapter.EditImagesAdapter;
 import com.rui.androidmvvmdemo.ui.adapter.ImagePagerAdapter;
 import com.rui.common.base.BasePageVMActivity;
+import com.rui.common.constant.APPValue;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.rui.mvvm.obcallback.VPOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.souyute.toolkit.DisplayUtils;
 import com.souyute.viewkit.GridSpacingItemDecoration;
+import com.souyute.viewkit.PhotoDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,11 +93,13 @@ public class EditImagesActivity extends BasePageVMActivity<
     }
 
     private void initVP() {
+        mainImageAdapter.setDisableClick(true);
         binding.setHeadAdapter(mainImageAdapter);
         vpOnListChangedCallback.setAdapter(mainImageAdapter);
         viewModel.items.addOnListChangedCallback(vpOnListChangedCallback);
 
-        mainImageAdapter.setSelectList(viewModel.items); ;
+        mainImageAdapter.setSelectList(viewModel.items);
+
         ViewGroup.LayoutParams layoutParams = binding.pagerMain.getLayoutParams();
         layoutParams.height = DisplayUtils.getScreenWidthAndHight(this.getApplicationContext())[0];
         binding.pagerMain.setLayoutParams(layoutParams);
@@ -147,10 +153,9 @@ public class EditImagesActivity extends BasePageVMActivity<
     public void setFootView() {
         if (footView == null) {
             footView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.layout_foot_small, null);
-
-//            footView.setOnClickListener(v -> showSelectDialog(APPValue.RESULTCODE_DT_TAKEPHOTO, APPValue.MAX_IMG_NUM - viewModel.items.size()));
+            footView.setOnClickListener(v -> showSelectDialog(APPValue.RESULTCODE_DT_TAKEPHOTO, APPValue.MAX_IMG_NUM - viewModel.items.size()));
         }
-        if (viewModel.items.size() <10) {
+        if (viewModel.items.size() < 10) {
             if (adapter.getFooterLayoutCount() == 0) {
                 adapter.addFooterView(footView);
                 EditImagesAdapter.setImageViewSize(getApplicationContext(), footView);
@@ -160,6 +165,60 @@ public class EditImagesActivity extends BasePageVMActivity<
         } else {
             adapter.removeFooterView(footView);
         }
+    }
+
+    private void showSelectDialog(int requestCode, int rest) {
+        PhotoDialog.createDialog(this, true, (View v1, int position) -> {
+            switch (v1.getId()) {
+                case R.id.takePhoto:
+                    openCamera(requestCode);
+                    break;
+                case R.id.choosePhoto:
+                    openPicSelector(requestCode, rest);
+                    break;
+                case R.id.chooseVideo:
+                    break;
+                case R.id.btn_cancel:
+                    break;
+            }
+        });
+    }
+
+    private void openPicSelector(int requestCode, int maxSelectNum) {
+        PictureSelector.create(this)
+                .openGallery(PictureMimeType.ofImage())
+                .maxSelectNum(maxSelectNum)
+                .isCamera(false)
+//                .selectionMedia(lastHeadList)
+                .enableCrop(true)
+                .compress(true)
+                //                .cropCompressQuality(50)// 裁剪压缩质量 默认100 int
+                .minimumCompressSize(100)// 小于100kb的图片不压缩
+                .withAspectRatio(1, 1)
+                .showCropFrame(true)
+                .showCropGrid(true)
+                .scaleEnabled(true)
+                .freeStyleCropEnabled(false)
+                .isDragFrame(false)
+                .rotateEnabled(false)
+                .forResult(requestCode);//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
+    }
+
+    private void openCamera(int requestCode) {
+        PictureSelector.create(this)
+                .openCamera(PictureMimeType.ofImage())
+                .enableCrop(true)
+                .compress(true)
+                //                .cropCompressQuality(50)// 裁剪压缩质量 默认100 int
+                .minimumCompressSize(100)// 小于100kb的图片不压缩
+                .withAspectRatio(1, 1)
+                .showCropFrame(true)
+                .showCropGrid(true)
+                .scaleEnabled(true)
+                .freeStyleCropEnabled(false)
+                .isDragFrame(false)
+                .rotateEnabled(false)
+                .forResult(requestCode);
     }
 
     @Override
@@ -172,18 +231,39 @@ public class EditImagesActivity extends BasePageVMActivity<
         return EditImagesViewModel.class;
     }
 
+    // 拖动监听
     @Override
     public void onItemDragStart(RecyclerView.ViewHolder viewHolder, int pos) {
-
     }
 
+    // 拖动监听
     @Override
-    public void onItemDragMoving(RecyclerView.ViewHolder source, int from, RecyclerView.ViewHolder target, int to) {
-
+    public void onItemDragMoving(RecyclerView.ViewHolder source, int from
+            , RecyclerView.ViewHolder target, int to) {
     }
 
+    // 拖动监听
     @Override
     public void onItemDragEnd(RecyclerView.ViewHolder viewHolder, int pos) {
+        //拖动完成之后通知头部及列表刷新数据
+//        mainImageAdapter.notifyDataSetChanged();
+        viewModel.currentPostion.set(pos);
+        adapter.setCurrentPosition(pos);
+        viewModel.isShowSave.set(true);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            viewModel.isShowSave.set(true);
+            List<LocalMedia> localMedias = PictureSelector.obtainMultipleResult(data);
+            switch (requestCode) {
+                //图片选择回调
+                case APPValue.RESULTCODE_DT_TAKEPHOTO:
+                    viewModel.items.addAll(localMedias);
+                    viewModel.currentPostion.set(viewModel.items.size() - 1);
+                    break;
+            }
+        }
     }
 }

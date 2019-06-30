@@ -10,6 +10,7 @@ import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.androidmvvmdemo.model.ColorModel;
 import com.rui.androidmvvmdemo.ui.activity.EditImagesActivity;
+import com.rui.common.constant.APPValue;
 import com.rui.common.imageloader.ImageLoader;
 import com.rui.common.oss.ImageHelper;
 
@@ -25,8 +26,9 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Inject
     FragmentActivity activity;
     private ArrayList<LocalMedia> imgs;
-    private int rvItemPos;
+    private int rvItemPos = -1;
     private ColorModel colorModel;
+    private boolean disableClick;
 
     @Inject
     public ImagePagerAdapter() {
@@ -54,8 +56,9 @@ public class ImagePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LocalMedia localMedia = imgs.get(position);
         ImageView imageView = new ImageView(container.getContext());
-        imageView.setOnClickListener(v -> {
-            EditImagesActivity.actionStart(activity, imgs, position, rvItemPos, 110);
+        if (!disableClick) imageView.setOnClickListener(v -> {
+            EditImagesActivity.actionStart(activity, imgs, position, rvItemPos
+                    , rvItemPos == -1 ? APPValue.HEAD_REQUESTCODE : APPValue.ITEM_REQUESTCODE);
         });
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         String path = localMedia.getCompressPath();
@@ -84,5 +87,9 @@ public class ImagePagerAdapter extends PagerAdapter {
     @Override
     public int getItemPosition(Object object) {
         return POSITION_NONE;
+    }
+
+    public void setDisableClick(boolean enableClick) {
+        this.disableClick = enableClick;
     }
 }

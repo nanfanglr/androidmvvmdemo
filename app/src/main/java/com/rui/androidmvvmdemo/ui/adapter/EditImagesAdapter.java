@@ -44,7 +44,6 @@ public class EditImagesAdapter extends BaseItemDraggableAdapter<LocalMedia, Base
         int mineType = item.getMimeType();
 
         ImageView iv = helper.getView(R.id.iv_small);
-        ImageView ivPlay = helper.getView(R.id.iv_play);
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         setImageViewSize(mContext, iv);
