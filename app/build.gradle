@@ -17,28 +17,28 @@ android {
     }
 
     signingConfigs {
-        release {
-            keyAlias 'androidmvvmdemo'
-            keyPassword '123456'
-            storeFile file('E:/androidmvvmdemo/androidmvvmdemo/app/androidmvvmdemo.jks')
-            storePassword '123456'
-        }
+//        release {
+//            keyAlias 'androidmvvmdemo'
+//            keyPassword '123456'
+//            storeFile file('E:/androidmvvmdemo/androidmvvmdemo/app/androidmvvmdemo.jks')
+//            storePassword '123456'
+//        }
     }
     dexOptions {
         jumboMode true
         javaMaxHeapSize "4g"
     }
     buildTypes {
-        release {
-            debuggable false
-            minifyEnabled true
-            zipAlignEnabled true
-            multiDexEnabled true
-            shrinkResources true    // 移除无用的resource文件
-            resValue "string", "app_name", "AndroidMvvmDemo"
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
+//        release {
+//            debuggable false
+//            minifyEnabled true
+//            zipAlignEnabled true
+//            multiDexEnabled true
+//            shrinkResources true    // 移除无用的resource文件
+//            resValue "string", "app_name", "AndroidMvvmDemo"
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.release
+//        }
 
         debug {
             debuggable true
