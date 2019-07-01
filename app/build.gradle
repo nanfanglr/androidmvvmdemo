@@ -20,7 +20,7 @@ android {
 //        release {
 //            keyAlias 'androidmvvmdemo'
 //            keyPassword '123456'
-//            storeFile file('E:/androidmvvmdemo/androidmvvmdemo/app/androidmvvmdemo.jks')
+//            storeFile file('androidmvvmdemo.jks')s
 //            storePassword '123456'
 //        }
     }
