@@ -13,19 +13,26 @@ public class LoginActivity extends BaseTranActivity<ActivityLoginBinding, LoginV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initEvent();
         initOB();
+    }
+
+    private void initEvent() {
+        binding.tvMultiple.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, MultipleRvItemActivity.class));
+        });
+    }
+
+    protected void initOB() {
+        viewModel.getLoginSuccess().observe(this, aVoid -> {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        });
     }
 
     @Override
     protected Class<LoginViewModel> getVMClass() {
         return LoginViewModel.class;
-    }
-
-    protected void initOB() {
-        viewModel.getLoginSuccess().observe(this, aVoid -> {
-            startActivity(new Intent(LoginActivity.this, MultipleRvItemActivity.class));
-            finish();
-        });
     }
 
     @Override
