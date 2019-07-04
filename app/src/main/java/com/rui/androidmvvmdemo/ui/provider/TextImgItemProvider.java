@@ -21,8 +21,11 @@ public class TextImgItemProvider extends BaseMultipleItemProvider<MultipleRvItem
 
     @Override
     public void convert(BaseRvViewHolder helper, MultipleRvItemModel data, int position) {
-        super.convert(helper,data,position);
-
+        super.convert(helper, data, position);
+        //如果需要处理更多逻辑，重写这个方法；
+        helper
+                .addOnClickListener(R.id.iv)
+                .addOnClickListener(R.id.tv);
     }
 
 

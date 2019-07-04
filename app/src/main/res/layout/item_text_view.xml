@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="com.rui.common.oss.ImageHelper" />
 
         <variable
@@ -32,25 +33,23 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/tv_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="纯文本的item"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="纯文本的item"
-
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@{itemViewModel.content}"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="14sp"
-                tools:text="http:kdkdkdkd.kajajakdkd.cllcllclclc"
-                android:text="@{itemViewModel.content}" />
+                tools:text="http:kdkdkdkd.kajajakdkd.cllcllclclc" />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

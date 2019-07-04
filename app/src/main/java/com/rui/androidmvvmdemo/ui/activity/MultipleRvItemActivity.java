@@ -13,6 +13,7 @@ import com.rui.common.base.BasePageVMActivity;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.souyute.toolkit.ToastUtils;
 
 public class MultipleRvItemActivity extends BasePageVMActivity<
         ActivityMultipleRvItemBinding
@@ -38,16 +39,15 @@ public class MultipleRvItemActivity extends BasePageVMActivity<
             }
         });
 
-    }
+        adapter.setOnItemChildClickListener((adapter, view, position) -> {
+            int id = view.getId();
+            if (id == R.id.iv) {
+                ToastUtils.showToast(this, "点击了图片文字的图片");
+            } else if (id == R.id.tv) {
+                ToastUtils.showToast(this, "点击了图片文字的文字");
+            }
+        });
 
-    @Override
-    protected int getLayoutID(Bundle savedInstanceState) {
-        return R.layout.activity_multiple_rv_item;
-    }
-
-    @Override
-    protected Class<MultipleRvItemViewModel> getVMClass() {
-        return MultipleRvItemViewModel.class;
     }
 
     @Override
@@ -58,6 +58,16 @@ public class MultipleRvItemActivity extends BasePageVMActivity<
     @Override
     protected RecyclerView getRV() {
         return binding.rvData;
+    }
+
+    @Override
+    protected int getLayoutID(Bundle savedInstanceState) {
+        return R.layout.activity_multiple_rv_item;
+    }
+
+    @Override
+    protected Class<MultipleRvItemViewModel> getVMClass() {
+        return MultipleRvItemViewModel.class;
     }
 
 

@@ -22,6 +22,8 @@ public class TextItemProvider extends BaseMultipleItemProvider<MultipleRvItemMod
     @Override
     public void convert(BaseRvViewHolder helper, MultipleRvItemModel data, int position) {
         super.convert(helper, data, position);
+        helper
+                .addOnClickListener(R.id.tv_text);
     }
 
 }
