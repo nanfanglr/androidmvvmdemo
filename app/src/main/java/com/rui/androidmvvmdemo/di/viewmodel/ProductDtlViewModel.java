@@ -53,7 +53,7 @@ public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
 
     @Override
     public void getData(int loadRefresh) {
-        addSubscribe(repository.getProdDtlOB(prodId, productNum.get())
+        addSubscribe(repository.getProdDtl(prodId, productNum.get())
                 .compose(singleTransformer())
                 .subscribe(productModelResultModel -> {
                     if (productModelResultModel.isSuccess()) {

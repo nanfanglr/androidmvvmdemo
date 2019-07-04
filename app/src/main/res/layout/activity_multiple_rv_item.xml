@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.rui.androidmvvmdemo.di.viewmodel.MultipleRvItemViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.rui.androidmvvmdemo.ui.adapter.MultipleRvItemAdapter" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.RecyclerView.LayoutManager" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.souyute.viewkit.HeadBar
+            app:titleText="多布局展示"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:finishLoadmore="@{viewModel.finishLoadmore}"
+            app:finishRefreshing="@{viewModel.finishRefreshing}"
+            app:loadNoMoreData="@{viewModel.loadNoMoreData}">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:rvAdapter="@{adapter}"
+                app:rvItems="@{viewModel.items}"
+                app:rvLayoutManager="@{layoutManager}" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</layout>

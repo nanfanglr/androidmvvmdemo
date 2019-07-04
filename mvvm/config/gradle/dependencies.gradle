@@ -37,6 +37,7 @@ ext.projectDependencies = [
         supportLibsConstraintLayout             : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
         supportLibsMultiDex                     : "com.android.support:multidex:$versions.multidexLib",
         supportDesign                           : "com.android.support:design:$versions.supportLibraries",
+        supportCardview                         : "com.android.support:cardview-v7:$versions.supportLibraries",
 
         // Dagger dependency injection - Includes android specific components
         daggerAnnotationProcessor               : "com.google.dagger:dagger-compiler:$versions.dagger",
@@ -184,6 +185,6 @@ ext.projectDependencies = [
         lifecycle_compiler                      : "android.arch.lifecycle:compiler:$versions.androidArch",
         // https://github.com/hdodenhof/CircleImageView
         circleimageview                         : "de.hdodenhof:circleimageview:$versions.circleimageview",
-        androidpickerView                    : "com.contrarywind:Android-PickerView:$versions.androidpickerView"
+        androidpickerView                       : "com.contrarywind:Android-PickerView:$versions.androidpickerView"
 
 ]

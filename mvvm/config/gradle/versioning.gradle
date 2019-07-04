@@ -57,7 +57,7 @@ ext.versions = [
         permissionsDispatcher      : '2.4.0',
         spoonEspressoTests         : '1.7.1',
         leakcanary                 : '1.6.1',
-        BRVAH                      : '2.9.42',
+        BRVAH                      : '2.9.46',
         SmartRefresh               : '1.1.0-alpha-14',
         greendao                   : '3.2.2',
         eventbus                   : '3.1.1',
@@ -73,7 +73,7 @@ ext.versions = [
         //https://github.com/hdodenhof/CircleImageView
         circleimageview            : '3.0.0',
         //Android-PickerView
-        androidpickerView       : '4.1.7'
+        androidpickerView          : '4.1.7'
 
 ]
 

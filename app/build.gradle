@@ -83,6 +83,7 @@ dependencies {
     implementation projectDependencies.supportLibsConstraintLayout
     implementation projectDependencies.supportDesign
     implementation projectDependencies.supportLibsAppCompat
+    implementation projectDependencies.supportCardview
     implementation projectDependencies.circleimageview
 
     implementation project(':common')

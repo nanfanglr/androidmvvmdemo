@@ -16,8 +16,17 @@ public class BaseRvViewHolder extends BaseViewHolder {
         super(view);
     }
 
+    /**
+     * 此方法适用于只有一种view type的情况
+     */
     public ViewDataBinding getBinding() {
         return (ViewDataBinding) itemView.getTag(R.id.BaseQuickAdapter_databinding_support);
+    }
+    /**
+     * 此方法适用于多种view type的情况
+     */
+    public ViewDataBinding getBinding(int layoutResId) {
+        return (ViewDataBinding) itemView.getTag(layoutResId);
     }
 
 }

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.androidmvvmdemo.model.ColorModel;
+import com.rui.androidmvvmdemo.model.MultipleRvItemModel;
 import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.netservice.NetService;
@@ -62,7 +63,7 @@ public class ProductRepository {
 //                , page, ResultModel.PAGE_LIMIT);
     }
 
-    public Single<ResultModel<ProductDtlModel>> getProdDtlOB(int prodId, String prodNum) {
+    public Single<ResultModel<ProductDtlModel>> getProdDtl(int prodId, String prodNum) {
         return Single.create(emitter -> {
             ResultModel<ProductDtlModel> resultModel = new ResultModel<>();
             resultModel.setSuccess(true);
@@ -128,5 +129,36 @@ public class ProductRepository {
 //        return homeService.saveProductImgs(id, imgs);
 //    }
 
+
+    public Single<ResultModel<MultipleRvItemModel>> getMultipleData() {
+        return Single.create(emitter -> {
+            ResultModel<MultipleRvItemModel> resultModel = new ResultModel<>();
+            resultModel.setSuccess(true);
+            ResultModel.PageData<MultipleRvItemModel> pageData = new ResultModel.PageData<>();
+            List<MultipleRvItemModel> list = new ArrayList<>();
+
+            // https://ww1.sinaimg.cn/large/0065oQSqly1ftf1snjrjuj30se10r1kx.jpg
+            // https://ww1.sinaimg.cn/large/0065oQSqly1ftzsj15hgvj30sg15hkbw.jpg
+            // https://ws1.sinaimg.cn/large/0065oQSqly1fubd0blrbuj30ia0qp0yi.jpg
+            // https://ws1.sinaimg.cn/large/0065oQSqly1fuh5fsvlqcj30sg10onjk.jpg
+            // https://ws1.sinaimg.cn/large/0065oQSqly1fuo54a6p0uj30sg0zdqnf.jpg
+            // https://ww1.sinaimg.cn/large/0065oQSqly1fszxi9lmmzj30f00jdadv.jpg
+
+            for (int i = 0; i < 2; i++) {
+                list.add(new MultipleRvItemModel(MultipleRvItemModel.SINGLE_IMG, "https://ww1.sinaimg.cn/large/0065oQSqly1ftf1snjrjuj30se10r1kx.jpg"));
+                list.add(new MultipleRvItemModel(MultipleRvItemModel.SINGLE_TEXT, "https://ww1.sinaimg.cn/large/0065oQSqly1ftzsj15hgvj30sg15hkbw.jpg"));
+                list.add(new MultipleRvItemModel(MultipleRvItemModel.TEXT_IMG, "https://ws1.sinaimg.cn/large/0065oQSqly1fubd0blrbuj30ia0qp0yi.jpg"));
+                list.add(new MultipleRvItemModel(MultipleRvItemModel.TEXT_IMG, "https://ws1.sinaimg.cn/large/0065oQSqly1fuh5fsvlqcj30sg10onjk.jpg"));
+                list.add(new MultipleRvItemModel(MultipleRvItemModel.TEXT_IMG, "https://ww1.sinaimg.cn/large/0065oQSqly1fszxi9lmmzj30f00jdadv.jpg"));
+            }
+
+
+            pageData.setList(list);
+            resultModel.setPageData(pageData);
+            resultModel.setTotal(29);
+            emitter.onSuccess(resultModel);
+
+        });
+    }
 
 }

@@ -23,7 +23,7 @@ public class LoginActivity extends BaseTranActivity<ActivityLoginBinding, LoginV
 
     protected void initOB() {
         viewModel.getLoginSuccess().observe(this, aVoid -> {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, MultipleRvItemActivity.class));
             finish();
         });
     }

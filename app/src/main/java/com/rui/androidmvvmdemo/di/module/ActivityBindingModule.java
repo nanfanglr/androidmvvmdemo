@@ -4,6 +4,7 @@ package com.rui.androidmvvmdemo.di.module;
 import com.rui.androidmvvmdemo.ui.activity.EditImagesActivity;
 import com.rui.androidmvvmdemo.ui.activity.LoginActivity;
 import com.rui.androidmvvmdemo.ui.activity.MainActivity;
+import com.rui.androidmvvmdemo.ui.activity.MultipleRvItemActivity;
 import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 
@@ -34,6 +35,10 @@ public abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = EditImagesModule.class)
     abstract EditImagesActivity editImagesActivityInjector();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = MultipleRvItemModule.class)
+    abstract MultipleRvItemActivity multipleRvItemActivityInjector();
 
 
 }
