@@ -18,6 +18,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * 这里全局ApplicationComponent注入
+ * modules进行细分方便其他项目复用，AndroidModule，NetworkModule，ViewModelFactoryModule
  * Created by rui on 2019/2/12
  */
 @Singleton
