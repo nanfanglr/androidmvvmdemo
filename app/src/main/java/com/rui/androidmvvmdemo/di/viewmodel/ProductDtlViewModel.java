@@ -14,9 +14,12 @@ import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
+import com.rui.mvvm.network.basemodel.ResultModel;
 import com.souyute.toolkit.ToastUtils;
 
 import javax.inject.Inject;
+
+import io.reactivex.Single;
 
 /**
  * Created by rui on 2019/2/12
@@ -71,6 +74,11 @@ public class ProductDtlViewModel extends BaseListViewModel<ColorModel> {
                         dataLoadingError.setValue(productModelResultModel.getMsg());
                     }
                 }, new ExceptionConsumer(getApplication())));
+    }
+
+    @Override
+    protected Single<ResultModel<ColorModel>> getDataOB() {
+        return null;
     }
 
     public void saveProductImg() {

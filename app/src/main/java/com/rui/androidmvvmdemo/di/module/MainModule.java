@@ -2,7 +2,6 @@ package com.rui.androidmvvmdemo.di.module;
 
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableArrayList;
-import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +10,7 @@ import com.rui.androidmvvmdemo.di.viewmodel.MainViewModel;
 import com.rui.androidmvvmdemo.ui.activity.MainActivity;
 import com.rui.androidmvvmdemo.ui.fragment.ProductImgFragment;
 import com.rui.mvvm.dagger.modules.BaseActivityModule;
+import com.rui.mvvm.dagger.modules.ObservableModule;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 import com.rui.mvvm.dagger.scopes.FragmentScope;
 import com.rui.mvvm.dagger.scopes.ViewModelScope;
@@ -27,13 +27,8 @@ import io.reactivex.subjects.Subject;
 /**
  * Created by rui on 2019/2/12
  */
-@Module(includes = BaseActivityModule.class)
+@Module(includes = {BaseActivityModule.class, ObservableModule.class})
 public abstract class MainModule {
-
-    @Provides
-    static ObservableField<String> providesObservableFieldString() {
-        return new ObservableField<String>();
-    }
 
     @Provides
     static ObservableList<Fragment> providesObservableList() {

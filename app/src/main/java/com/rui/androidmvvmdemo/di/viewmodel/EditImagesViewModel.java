@@ -7,8 +7,11 @@ import android.support.annotation.NonNull;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
+import com.rui.mvvm.network.basemodel.ResultModel;
 
 import javax.inject.Inject;
+
+import io.reactivex.Single;
 
 /**
  * Created by rui on 2019/2/12
@@ -34,6 +37,11 @@ public class EditImagesViewModel extends BaseListViewModel<LocalMedia> {
     @Override
     public void getData(int loadRefresh) {
 
+    }
+
+    @Override
+    protected Single<ResultModel<LocalMedia>> getDataOB() {
+        return null;
     }
 
     public void deleteItem(int pos) {

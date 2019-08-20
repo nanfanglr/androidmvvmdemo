@@ -1,17 +1,14 @@
 package com.rui.common.base;
 
-import android.annotation.SuppressLint;
 import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
 
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
-import com.rui.mvvm.network.basemodel.ResultModel;
 
 import java.util.List;
 
-import io.reactivex.Single;
 import timber.log.Timber;
 
 /**
@@ -41,7 +38,11 @@ public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
         super(application);
     }
 
-    @SuppressLint("CheckResult")
+    /**
+     * 简单展示列表的通用处理方式，如果不满足需求，请重写改方法
+     *
+     * @param loadRefresh
+     */
     @Override
     public void getData(int loadRefresh) {
         Timber.d("---------->getData.loadRefresh=>" + loadRefresh);
@@ -53,7 +54,8 @@ public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
             loadNoMoreData.set(true);
             return;
         }
-        addSubscribe(getDataOB().compose(singleTransformer(loadRefresh))
+        addSubscribe(getDataOB()
+                .compose(singleTransformer(loadRefresh))
                 .subscribe(listResultModel -> {
                     if (listResultModel.isSuccess()) {
                         List<ITEM> data = listResultModel.getPageData().getList();
@@ -68,12 +70,11 @@ public abstract class BasePageViewModel<ITEM> extends BaseListViewModel<ITEM> {
                         page++;
                         if (items.size() == 0) empty.call();
                     } else {
-                        dataLoadingError.setValue(listResultModel.getMsg());
+                        dataLoadingError.setValue(listResultModel.getMsg()) ;
                     }
                 }, new ExceptionConsumer(getApplication()))
         );
     }
 
-    public abstract Single<ResultModel<ITEM>> getDataOB();
 
 }
