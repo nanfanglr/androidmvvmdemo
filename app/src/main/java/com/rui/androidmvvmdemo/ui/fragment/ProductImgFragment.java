@@ -16,7 +16,7 @@ import com.rui.androidmvvmdemo.di.viewmodel.ProductImgFgViewModel;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
 import com.rui.common.adapter.BaseRvAdapter;
-import com.rui.common.base.BaseListVMFragment;
+import com.rui.common.base.BasePageVMFragment;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -26,7 +26,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * Created by rui on 2019/6/24
  */
-public class ProductImgFragment extends BaseListVMFragment<
+public class ProductImgFragment extends BasePageVMFragment<
         FragmentProductImgBinding
         , ProductImgFgViewModel
         , BaseRvAdapter<ProductModel>

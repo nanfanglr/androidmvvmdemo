@@ -28,7 +28,7 @@ import javax.inject.Provider;
 /**
  * Created by rui on 2018/12/27
  */
-public abstract class BaseListVMFragment<
+public abstract class BasePageVMFragment<
         DB extends ViewDataBinding
         , VM extends BaseListViewModel
         , ADAPTER extends BaseQuickAdapter
