@@ -12,11 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.rui.common.BR;
 import com.rui.common.R;
 import com.rui.common.constant.APPValue;
 import com.rui.common.databinding.EmptyViewVmBinding;
-import com.rui.mvvm.fragment.BaseLazyVMFragment;
+import com.rui.mvvm.fragment.BaseDaggerFragment;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
@@ -34,7 +33,7 @@ public abstract class BasePageVMFragment<
         , ADAPTER extends BaseQuickAdapter
         , LAYOUTMANAGER extends RecyclerView.LayoutManager
         , RVCB extends RvOnListChangedCallback
-        > extends BaseLazyVMFragment<DB, VM> {
+        > extends BaseDaggerFragment<DB, VM> {
     /**
      * 空的布局
      */
@@ -109,8 +108,12 @@ public abstract class BasePageVMFragment<
         if (getRV() == null) return;
         adapter = createAdapter();
         layoutManager = createLayoutmanager();
-        binding.setVariable(BR.adapter, adapter);
-        binding.setVariable(BR.layoutManager, layoutManager);
+        adapter.setNewData(viewModel.items);
+        getRV().setLayoutManager(layoutManager);
+        getRV().setAdapter(adapter);
+
+//        binding.setVariable(BR.adapter, adapter);
+//        binding.setVariable(BR.layoutManager, layoutManager);
 
         rvOnListChangedCallback = createRVCB();
         rvOnListChangedCallback.setAdapter(adapter);

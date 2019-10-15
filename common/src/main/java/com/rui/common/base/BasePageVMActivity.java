@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.rui.common.BR;
 import com.rui.common.R;
 import com.rui.common.constant.APPValue;
 import com.rui.common.databinding.EmptyViewVmBinding;
@@ -133,8 +132,12 @@ public abstract class BasePageVMActivity<
         if (getRV() == null) return;
         adapter = createAdapter();
         layoutManager = createLayoutmanager();
-        binding.setVariable(BR.adapter, adapter);
-        binding.setVariable(BR.layoutManager, layoutManager);
+        adapter.setNewData(viewModel.items);
+        getRV().setLayoutManager(layoutManager);
+        getRV().setAdapter(adapter);
+
+//        binding.setVariable(BR.adapter, adapter);
+//        binding.setVariable(BR.layoutManager, layoutManager);
 
         rvOnListChangedCallback = createRVCB();
         rvOnListChangedCallback.setAdapter(adapter);

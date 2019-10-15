@@ -2,6 +2,7 @@ package com.rui.common.adapter;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -21,6 +22,10 @@ import java.util.List;
  * @param <T>
  */
 public class BaseRvAdapter<T> extends BaseQuickAdapter<T, BaseRvViewHolder> {
+    /**
+     * 点击事件的viewId集合
+     */
+    private List<Integer> clickIds = new ArrayList<>();
 
     public BaseRvAdapter(@LayoutRes int layoutResId) {
         super(layoutResId, new ArrayList<>());
@@ -46,5 +51,21 @@ public class BaseRvAdapter<T> extends BaseQuickAdapter<T, BaseRvViewHolder> {
         ViewDataBinding binding = helper.getBinding();
         binding.setVariable(BR.itemViewModel, item);
         binding.executePendingBindings();
+        for (Integer id : clickIds) {
+            helper.addOnClickListener(id);
+        }
     }
+
+    /**
+     * 添加点击事件
+     *
+     * @param ids 需要添加点击事件的view的id
+     */
+    public void addItemChildClickListener(@IdRes int... ids) {
+        for (int id : ids) {
+            clickIds.add(id);
+        }
+    }
+
+
 }

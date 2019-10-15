@@ -1,4 +1,4 @@
-package com.rui.mvvm.fragment;
+package com.rui.mvvm.dialogfragment;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProvider;
@@ -8,13 +8,11 @@ import android.databinding.ViewDataBinding;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
-import com.rui.mvvm.dagger.modules.BaseFragmentModule;
+import com.rui.mvvm.fragment.BaseLazyVMFragment;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -26,12 +24,9 @@ import dagger.android.support.HasSupportFragmentInjector;
  */
 
 
-public abstract class BaseDaggerFragment<DB extends ViewDataBinding, VM extends BaseViewModel> extends BaseLazyVMFragment<DB, VM>
+public abstract class BaseDaggerDialogFragment<DB extends ViewDataBinding, VM extends BaseViewModel> extends BaseLazyVMFragment<DB, VM>
         implements HasSupportFragmentInjector {
 
-    @Inject
-    @Named(BaseFragmentModule.CHILD_FRAGMENT_MANAGER)
-    protected FragmentManager childFragmentManager;
     @Inject
     protected ViewModelProvider.Factory viewModelFactory;
     @Inject

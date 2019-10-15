@@ -1,36 +1,30 @@
 package com.rui.mvvm.activity;
 
 import android.app.ProgressDialog;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.rui.mvvm.BR;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 
 /**
- * Created by rui on 2018/10/29
+ * 为加载fragment抽出来的，此activity不需要获取数据显示因此没有MVP类
+ * Created by rui on 2018/3/9.
  */
+
 public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends BaseViewModel>
-        extends BaseDaggerActivity<DB> {
+        extends BaseAppCompatActivity<DB> {
 
     /**
      * 当前页面的ViewModel
      */
     protected VM viewModel;
 
-    /**
-     * 当前页面的ViewModel实例工厂
-     */
-    @Inject
-    protected ViewModelProvider.Factory viewModelFactory;
+
     protected ProgressDialog _processBar;
 
     @Override
@@ -42,16 +36,13 @@ public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends Base
         setEorrorHint();
     }
 
-
     /**
      * 获取ViewModel实例
      *
      * @param modelClass
      * @return
      */
-    protected VM obtainViewModel(@NonNull Class<VM> modelClass) {
-        return ViewModelProviders.of(this, viewModelFactory).get(modelClass);
-    }
+    abstract protected VM obtainViewModel(@NonNull Class<VM> modelClass);
 
     /**
      * 获取ViewModelClass
@@ -64,7 +55,7 @@ public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends Base
      * 绑定ViewModel,此方法可以扩展绑定
      */
     protected void bindingVM() {
-        binding.setVariable(BR.viewModel, viewModel);
+        binding.setVariable(com.rui.mvvm.BR.viewModel, viewModel);
     }
 
     /**
@@ -122,11 +113,5 @@ public abstract class BaseVMActivity<DB extends ViewDataBinding, VM extends Base
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
         });
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-
 }
+

@@ -35,6 +35,7 @@ public abstract class BaseAppCompatActivity<DB extends ViewDataBinding>
      */
     protected abstract int getLayoutID(Bundle savedInstanceState);
 
+
     public void backClick(View v) {
         finish();
     }

@@ -1,8 +1,6 @@
 package com.rui.mvvm.fragment;
 
 import android.app.ProgressDialog;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,28 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.rui.mvvm.BR;
 import com.rui.mvvm.viewmodel.BaseViewModel;
-
-import javax.inject.Inject;
 
 import timber.log.Timber;
 
 /**
- * Created by rui on 2018/10/31
+ * Created by rui on 2017/10/31.
  */
 public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends BaseViewModel>
-        extends BaseDaggerFragment<DB> {
-
-    protected final String TAG = this.getClass().getName();
+        extends BaseFragment<DB> {
 
     protected boolean isViewPrepared; // 标识fragment视图已经初始化完毕
     protected boolean hasFetchData; // 标识已经触发过懒加载数据
 
     protected VM viewModel;
 
-    @Inject
-    protected ViewModelProvider.Factory viewModelFactory;
     protected ProgressDialog _processBar;
 
     @Override
@@ -119,7 +110,6 @@ public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends 
         return "";
     }
 
-
     /**
      * 加载错误统一提示，如果不需要就重写此方法
      */
@@ -128,6 +118,28 @@ public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends 
             Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
         });
     }
+
+    /**
+     * 获取ViewModelClass
+     *
+     * @return
+     */
+    protected abstract Class<VM> getVMClass();
+
+    /**
+     * 绑定ViewModel,此方法可以扩展绑定
+     */
+    protected void bindingVM() {
+        binding.setVariable(com.rui.mvvm.BR.viewModel, viewModel);
+    }
+
+    /**
+     * 获取ViewModel实例
+     *
+     * @param modelClass
+     * @return
+     */
+    abstract protected VM obtainViewModel(@NonNull Class<VM> modelClass);
 
     protected void lazyFetchDataIfPrepared() {
         // 用户可见fragment && 没有加载过数据 && 视图已经准备完毕
@@ -149,27 +161,11 @@ public abstract class BaseLazyVMFragment<DB extends ViewDataBinding, VM extends 
     }
 
     /**
-     * 获取ViewModelClass
+     * 初始化view
      *
+     * @param savedInstanceState
      * @return
      */
-    protected abstract Class<VM> getVMClass();
-
-    /**
-     * 绑定ViewModel,此方法可以扩展绑定
-     */
-    protected void bindingVM() {
-        binding.setVariable(BR.viewModel, viewModel);
-    }
-
-    /**
-     * 获取ViewModel实例
-     *
-     * @param modelClass
-     * @return
-     */
-    protected VM obtainViewModel(@NonNull Class<VM> modelClass) {
-        return ViewModelProviders.of(this, viewModelFactory).get(modelClass);
-    }
+    protected abstract int getLayoutID(Bundle savedInstanceState);
 
 }

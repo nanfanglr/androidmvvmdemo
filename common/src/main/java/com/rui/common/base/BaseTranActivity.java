@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.ViewGroup;
 
 import com.rui.common.R;
-import com.rui.mvvm.activity.BaseVMActivity;
+import com.rui.mvvm.activity.BaseDaggerActivity;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 import com.souyute.toolkit.BarUtils;
 
@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
  */
 public abstract class BaseTranActivity<DB extends ViewDataBinding,
         VM extends BaseViewModel>
-        extends BaseVMActivity<DB, VM> {
+        extends BaseDaggerActivity<DB, VM> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
