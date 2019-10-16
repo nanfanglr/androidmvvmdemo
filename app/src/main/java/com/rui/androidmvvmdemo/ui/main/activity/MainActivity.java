@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.databinding.ActivityMainBinding;
-import com.rui.androidmvvmdemo.ui.FgPagerAdapter;
 import com.rui.common.base.BaseTranActivity;
 
 import javax.inject.Inject;

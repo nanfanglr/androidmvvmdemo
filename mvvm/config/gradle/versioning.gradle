@@ -73,7 +73,7 @@ ext.versions = [
         //https://github.com/hdodenhof/CircleImageView
         circleimageview            : '3.0.0',
         //Android-PickerView
-        androidpickerView          : '4.1.7'
+        androidpickerView          : '4.1.8'
 
 ]
 

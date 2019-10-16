@@ -1,4 +1,4 @@
-package com.rui.androidmvvmdemo.ui;
+package com.rui.androidmvvmdemo.ui.main.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

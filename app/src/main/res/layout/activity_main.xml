@@ -11,7 +11,7 @@
 
         <variable
             name="fgPagerAdapter"
-            type="com.rui.androidmvvmdemo.ui.FgPagerAdapter" />
+            type="com.rui.androidmvvmdemo.ui.main.activity.FgPagerAdapter" />
 
         <variable
             name="viewModel"

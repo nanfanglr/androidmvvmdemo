@@ -1,7 +1,7 @@
 package com.rui.androidmvvmdemo;
 
 import com.rui.androidmvvmdemo.di.ApplicationComponent;
-import com.rui.androidmvvmdemo.di.component.DaggerApplicationComponent;
+import com.rui.androidmvvmdemo.di.DaggerApplicationComponent;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 
 
