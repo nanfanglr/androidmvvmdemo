@@ -11,8 +11,8 @@ import com.rui.mvvm.dagger.scopes.ActivityScope;
 import com.rui.mvvm.dagger.scopes.ViewModelScope;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.rui.mvvm.obcallback.VPOnListChangedCallback;
-import com.souyute.toolkit.DisplayUtils;
-import com.souyute.viewkit.GridSpacingItemDecoration;
+import com.rui.toolkit.DisplayUtils;
+import com.rui.viewkit.GridSpacingItemDecoration;
 
 import dagger.Binds;
 import dagger.Module;

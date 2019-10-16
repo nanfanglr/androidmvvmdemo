@@ -1,4 +1,4 @@
-package com.souyute.viewkit;
+package com.rui.viewkit;
 
 import android.databinding.BindingAdapter;
 import android.view.View;

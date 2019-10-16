@@ -15,7 +15,7 @@ import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
 import com.rui.mvvm.network.basemodel.ResultModel;
-import com.souyute.toolkit.ToastUtils;
+import com.rui.toolkit.ToastUtils;
 
 import javax.inject.Inject;
 

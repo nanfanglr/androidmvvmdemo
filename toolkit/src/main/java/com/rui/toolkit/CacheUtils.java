@@ -1,4 +1,4 @@
-package com.souyute.toolkit;
+package com.rui.toolkit;
 
 import android.text.TextUtils;
 

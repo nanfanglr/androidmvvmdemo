@@ -11,7 +11,7 @@ import com.rui.androidmvvmdemo.ui.product_dtl.ImagePagerAdapter;
 import com.rui.common.adapter.BaseRvAdapter;
 import com.rui.common.adapter.BaseRvViewHolder;
 import com.rui.mvvm.obcallback.VPOnListChangedCallback;
-import com.souyute.toolkit.DisplayUtils;
+import com.rui.toolkit.DisplayUtils;
 
 import javax.inject.Inject;
 

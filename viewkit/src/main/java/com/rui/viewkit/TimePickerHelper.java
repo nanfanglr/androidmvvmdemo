@@ -1,4 +1,4 @@
-package com.souyute.viewkit;
+package com.rui.viewkit;
 
 import android.app.Activity;
 import android.graphics.Color;

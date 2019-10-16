@@ -1,4 +1,4 @@
-package com.souyute.viewkit;
+package com.rui.viewkit;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

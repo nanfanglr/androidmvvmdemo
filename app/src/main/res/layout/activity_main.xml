@@ -26,7 +26,7 @@
         android:orientation="vertical"
         tools:context=".ui.MainActivity">
 
-        <com.souyute.viewkit.HeadBar
+        <com.rui.viewkit.HeadBar
             android:id="@+id/headBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

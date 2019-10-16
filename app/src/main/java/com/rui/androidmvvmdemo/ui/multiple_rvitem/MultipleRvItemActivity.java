@@ -11,7 +11,7 @@ import com.rui.common.base.BasePageVMActivity;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.souyute.toolkit.ToastUtils;
+import com.rui.toolkit.ToastUtils;
 
 public class MultipleRvItemActivity extends BasePageVMActivity<
         ActivityMultipleRvItemBinding

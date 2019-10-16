@@ -1,4 +1,4 @@
-package com.souyute.viewkit;
+package com.rui.viewkit;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

@@ -1,4 +1,4 @@
-package com.souyute.toolkit;
+package com.rui.toolkit;
 
 import android.text.TextUtils;
 
@@ -397,7 +397,7 @@ public class TimeUtils {
         if (i == 1)
             calendar.add(Calendar.WEEK_OF_YEAR, -1);
         calendar.set(Calendar.DAY_OF_WEEK, 2);//一个星期的星期一
-        String weekBegin = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String weekBegin = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return weekBegin;
     }
@@ -418,7 +418,7 @@ public class TimeUtils {
             calendar.add(Calendar.WEEK_OF_YEAR, -1);
         calendar.add(Calendar.WEEK_OF_YEAR, 1);
         calendar.set(Calendar.DAY_OF_WEEK, 1);//一个星期的星期日
-        String weekEnd = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String weekEnd = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return weekEnd;
     }
@@ -435,7 +435,7 @@ public class TimeUtils {
         Calendar calendar = getCalendar(time, format_yyyy_MM_dd);
 
         calendar.set(Calendar.DAY_OF_MONTH, 1);
-        String monthBegin = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String monthBegin = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return monthBegin;
     }
@@ -452,7 +452,7 @@ public class TimeUtils {
         Calendar calendar = getCalendar(time, format_yyyy_MM1);
 
         calendar.set(Calendar.DAY_OF_MONTH, 1);
-        String monthBegin = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String monthBegin = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return monthBegin;
     }
@@ -470,7 +470,7 @@ public class TimeUtils {
 
         calendar.add(Calendar.MONTH, 1);
         calendar.set(Calendar.DAY_OF_MONTH, 0);
-        String monthEnd = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String monthEnd = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return monthEnd;
     }
@@ -488,7 +488,7 @@ public class TimeUtils {
 
         calendar.add(Calendar.MONTH, 1);
         calendar.set(Calendar.DAY_OF_MONTH, 0);
-        String monthEnd = TimeHelper.getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
+        String monthEnd = getDateFormatter(calendar.getTime(), "yyyy-MM-dd");
 
         return monthEnd;
     }

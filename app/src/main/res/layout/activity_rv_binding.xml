@@ -24,7 +24,7 @@
         android:orientation="vertical"
         tools:context="com.rui.androidmvvmdemo.ui.rvbinding.RvBindingActivity">
 
-        <com.souyute.viewkit.HeadBar
+        <com.rui.viewkit.HeadBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:titleText="多布局绑定展示" />

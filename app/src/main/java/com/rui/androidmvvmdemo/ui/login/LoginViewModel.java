@@ -18,8 +18,8 @@ import com.rui.mvvm.livedata.SingleLiveEvent;
 import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
 import com.rui.mvvm.network.networkconfig.PropertiesManager;
 import com.rui.mvvm.viewmodel.BaseViewModel;
-import com.souyute.toolkit.SharedPreferencesUtils;
-import com.souyute.toolkit.ToastUtils;
+import com.rui.toolkit.SharedPreferencesUtils;
+import com.rui.toolkit.ToastUtils;
 
 import javax.inject.Inject;
 

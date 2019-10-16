@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.rui.common.R;
 import com.rui.mvvm.activity.BaseDaggerActivity;
 import com.rui.mvvm.viewmodel.BaseViewModel;
-import com.souyute.toolkit.BarUtils;
+import com.rui.toolkit.BarUtils;
 
 import javax.annotation.Nullable;
 

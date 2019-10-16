@@ -1,4 +1,4 @@
-package com.souyute.toolkit;
+package com.rui.toolkit;
 
 import android.content.ClipboardManager;
 import android.content.Context;

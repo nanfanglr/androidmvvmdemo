@@ -14,7 +14,7 @@ import com.rui.androidmvvmdemo.R;
 import com.rui.common.constant.APPValue;
 import com.rui.common.imageloader.ImageLoader;
 import com.rui.common.oss.ImageHelper;
-import com.souyute.toolkit.DisplayUtils;
+import com.rui.toolkit.DisplayUtils;
 
 import java.util.ArrayList;
 

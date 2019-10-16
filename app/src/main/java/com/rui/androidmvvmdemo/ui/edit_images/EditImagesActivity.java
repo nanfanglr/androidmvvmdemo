@@ -24,9 +24,9 @@ import com.rui.common.constant.APPValue;
 import com.rui.mvvm.obcallback.RvOnListChangedCallback;
 import com.rui.mvvm.obcallback.VPOnListChangedCallback;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.souyute.toolkit.DisplayUtils;
-import com.souyute.viewkit.GridSpacingItemDecoration;
-import com.souyute.viewkit.PhotoDialog;
+import com.rui.toolkit.DisplayUtils;
+import com.rui.viewkit.GridSpacingItemDecoration;
+import com.rui.viewkit.PhotoDialog;
 
 import java.util.ArrayList;
 import java.util.List;
