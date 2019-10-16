@@ -9,14 +9,7 @@
         <variable
             name="viewModel"
             type="com.rui.androidmvvmdemo.ui.main.fragment.ProductImgFgViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.rui.common.adapter.BaseRvAdapter" />
-
-        <variable
-            name="layoutManager"
-            type="android.support.v7.widget.RecyclerView.LayoutManager" />
+        />
     </data>
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -30,9 +23,6 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_data"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:rvAdapter="@{adapter}"
-            app:rvItems="@{viewModel.items}"
-            app:rvLayoutManager="@{layoutManager}" />
+            android:layout_height="match_parent" />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </layout>

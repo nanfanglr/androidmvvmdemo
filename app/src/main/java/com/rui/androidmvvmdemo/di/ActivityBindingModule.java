@@ -11,6 +11,8 @@ import com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemActivity;
 import com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemModule;
 import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlActivity;
 import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlModule;
+import com.rui.androidmvvmdemo.ui.rvbinding.RvBindingActivity;
+import com.rui.androidmvvmdemo.ui.rvbinding.RvBindingModule;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 
 import dagger.Module;
@@ -45,5 +47,8 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = MultipleRvItemModule.class)
     abstract MultipleRvItemActivity multipleRvItemActivityInjector();
 
+    @ActivityScope
+    @ContributesAndroidInjector(modules = RvBindingModule.class)
+    abstract RvBindingActivity getRvBindingActivityInjector();
 
 }

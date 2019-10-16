@@ -7,16 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="adapter"
-            type="com.rui.androidmvvmdemo.ui.main.fragment.ProductImgAdapter" />
-
-        <variable
             name="viewModel"
             type="com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlViewModel" />
-
-        <variable
-            name="layoutManager"
-            type="android.support.v7.widget.RecyclerView.LayoutManager" />
 
     </data>
 
@@ -42,10 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/headBar"
-            android:nestedScrollingEnabled="false"
-            app:rvAdapter="@{adapter}"
-            app:rvItems="@{viewModel.items}"
-            app:rvLayoutManager="@{layoutManager}" />
+            android:nestedScrollingEnabled="false" />
 
 
     </RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.rui.androidmvvmdemo.ui.rvbinding.RvBindingViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.rui.common.adapter.BaseRvAdapter" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.RecyclerView.LayoutManager" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.rui.androidmvvmdemo.ui.rvbinding.RvBindingActivity">
+
+        <com.souyute.viewkit.HeadBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleText="多布局绑定展示" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rvAdapter="@{adapter}"
+            app:rvItems="@{viewModel.items}"
+            app:rvLayoutManager="@{layoutManager}" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -10,24 +9,17 @@
         <variable
             name="viewModel"
             type="com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemAdapter" />
-
-        <variable
-            name="layoutManager"
-            type="android.support.v7.widget.RecyclerView.LayoutManager" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <com.souyute.viewkit.HeadBar
-            app:titleText="多布局绑定展示"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:titleText="多布局绑定展示" />
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/refresh"
@@ -40,10 +32,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_data"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:rvAdapter="@{adapter}"
-                app:rvItems="@{viewModel.items}"
-                app:rvLayoutManager="@{layoutManager}" />
+                android:layout_height="match_parent" />
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     </LinearLayout>
 </layout>

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.databinding.ActivityLoginBinding;
 import com.rui.androidmvvmdemo.ui.main.activity.MainActivity;
-import com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemActivity;
 import com.rui.common.base.BaseTranActivity;
 
 public class LoginActivity extends BaseTranActivity<ActivityLoginBinding, LoginViewModel> {
@@ -14,14 +13,7 @@ public class LoginActivity extends BaseTranActivity<ActivityLoginBinding, LoginV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initEvent();
         initOB();
-    }
-
-    private void initEvent() {
-        binding.tvMultiple.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, MultipleRvItemActivity.class));
-        });
     }
 
     protected void initOB() {

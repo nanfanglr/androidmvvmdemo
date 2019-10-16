@@ -16,16 +16,8 @@
             type="com.rui.androidmvvmdemo.ui.product_dtl.ImagePagerAdapter" />
 
         <variable
-            name="adapter"
-            type="com.rui.androidmvvmdemo.ui.edit_images.EditImagesAdapter" />
-
-        <variable
             name="viewModel"
             type="com.rui.androidmvvmdemo.ui.edit_images.EditImagesViewModel" />
-
-        <variable
-            name="layoutManager"
-            type="android.support.v7.widget.RecyclerView.LayoutManager" />
 
     </data>
 
@@ -108,11 +100,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:clipToPadding="true"
-                    android:paddingBottom="10dp"
-                    app:rvAdapter="@{adapter}"
-                    app:rvDecoration="@{decoration}"
-                    app:rvItems="@{viewModel.items}"
-                    app:rvLayoutManager="@{layoutManager}" />
+                    android:paddingBottom="10dp" />
 
                 <TextView
                     android:id="@+id/tv_tip_add"
