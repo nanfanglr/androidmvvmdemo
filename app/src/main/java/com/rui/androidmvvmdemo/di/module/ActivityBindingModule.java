@@ -1,11 +1,16 @@
 package com.rui.androidmvvmdemo.di.module;
 
 
-import com.rui.androidmvvmdemo.ui.activity.EditImagesActivity;
-import com.rui.androidmvvmdemo.ui.activity.LoginActivity;
-import com.rui.androidmvvmdemo.ui.activity.MainActivity;
-import com.rui.androidmvvmdemo.ui.activity.MultipleRvItemActivity;
-import com.rui.androidmvvmdemo.ui.activity.ProductDtlActivity;
+import com.rui.androidmvvmdemo.ui.edit_images.EditImagesActivity;
+import com.rui.androidmvvmdemo.ui.edit_images.EditImagesModule;
+import com.rui.androidmvvmdemo.ui.login.LoginActivity;
+import com.rui.androidmvvmdemo.ui.login.LoginModule;
+import com.rui.androidmvvmdemo.ui.main.activity.MainActivity;
+import com.rui.androidmvvmdemo.ui.main.activity.MainModule;
+import com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemActivity;
+import com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemModule;
+import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlActivity;
+import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlModule;
 import com.rui.mvvm.dagger.scopes.ActivityScope;
 
 import dagger.Module;

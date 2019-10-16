@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.ProductImgFgViewModel" />
+            type="com.rui.androidmvvmdemo.ui.main.fragment.ProductImgFgViewModel" />
 
         <variable
             name="adapter"

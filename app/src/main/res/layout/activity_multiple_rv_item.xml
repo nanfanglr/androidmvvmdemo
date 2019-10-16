@@ -9,11 +9,11 @@
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.MultipleRvItemViewModel" />
+            type="com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemViewModel" />
 
         <variable
             name="adapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.MultipleRvItemAdapter" />
+            type="com.rui.androidmvvmdemo.ui.multiple_rvitem.MultipleRvItemAdapter" />
 
         <variable
             name="layoutManager"

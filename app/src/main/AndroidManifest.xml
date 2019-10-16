@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.MultipleRvItemActivity"></activity>
-        <activity android:name=".ui.activity.EditImagesActivity" />
+        <activity android:name=".ui.multiple_rvitem.MultipleRvItemActivity"></activity>
+        <activity android:name=".ui.edit_images.EditImagesActivity" />
         <activity
-            android:name=".ui.activity.ProductDtlActivity"
+            android:name=".ui.product_dtl.ProductDtlActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.main.activity.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
     </application>

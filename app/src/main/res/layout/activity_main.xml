@@ -11,11 +11,11 @@
 
         <variable
             name="fgPagerAdapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.FgPagerAdapter" />
+            type="com.rui.androidmvvmdemo.ui.FgPagerAdapter" />
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.MainViewModel" />
+            type="com.rui.androidmvvmdemo.ui.main.activity.MainViewModel" />
     </data>
 
     <LinearLayout

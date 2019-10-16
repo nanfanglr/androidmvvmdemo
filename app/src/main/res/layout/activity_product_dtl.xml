@@ -8,11 +8,11 @@
 
         <variable
             name="adapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.ProductImgAdapter" />
+            type="com.rui.androidmvvmdemo.ui.main.fragment.ProductImgAdapter" />
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.ProductDtlViewModel" />
+            type="com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlViewModel" />
 
         <variable
             name="layoutManager"

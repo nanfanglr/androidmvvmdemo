@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.LoginViewModel" />
+            type="com.rui.androidmvvmdemo.ui.login.LoginViewModel" />
     </data>
 
     <RelativeLayout

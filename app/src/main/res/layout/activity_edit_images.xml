@@ -13,15 +13,15 @@
 
         <variable
             name="headAdapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.ImagePagerAdapter" />
+            type="com.rui.androidmvvmdemo.ui.product_dtl.ImagePagerAdapter" />
 
         <variable
             name="adapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.EditImagesAdapter" />
+            type="com.rui.androidmvvmdemo.ui.edit_images.EditImagesAdapter" />
 
         <variable
             name="viewModel"
-            type="com.rui.androidmvvmdemo.di.viewmodel.EditImagesViewModel" />
+            type="com.rui.androidmvvmdemo.ui.edit_images.EditImagesViewModel" />
 
         <variable
             name="layoutManager"

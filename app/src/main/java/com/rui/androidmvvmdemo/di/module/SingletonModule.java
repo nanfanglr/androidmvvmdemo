@@ -1,7 +1,7 @@
 package com.rui.androidmvvmdemo.di.module;
 
 
-import com.rui.androidmvvmdemo.di.repository.UserInfoRepository;
+import com.rui.androidmvvmdemo.repository.UserInfoRepository;
 import com.rui.androidmvvmdemo.netservice.NetService;
 
 import javax.inject.Singleton;

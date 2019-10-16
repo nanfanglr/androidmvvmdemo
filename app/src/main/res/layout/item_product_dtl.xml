@@ -9,7 +9,7 @@
 
         <variable
             name="adapter"
-            type="com.rui.androidmvvmdemo.ui.adapter.ImagePagerAdapter" />
+            type="com.rui.androidmvvmdemo.ui.product_dtl.ImagePagerAdapter" />
 
         <variable
             name="itemViewModel"
