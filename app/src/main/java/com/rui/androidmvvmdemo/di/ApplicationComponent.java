@@ -1,8 +1,6 @@
-package com.rui.androidmvvmdemo.di.component;
+package com.rui.androidmvvmdemo.di;
 
 import com.rui.androidmvvmdemo.App;
-import com.rui.androidmvvmdemo.di.module.ActivityBindingModule;
-import com.rui.androidmvvmdemo.di.module.SingletonModule;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.dagger.modules.AndroidModule;
 import com.rui.mvvm.dagger.modules.ApplicationModule;

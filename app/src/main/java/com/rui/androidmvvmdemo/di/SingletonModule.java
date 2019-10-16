@@ -1,4 +1,4 @@
-package com.rui.androidmvvmdemo.di.module;
+package com.rui.androidmvvmdemo.di;
 
 
 import com.rui.androidmvvmdemo.repository.UserInfoRepository;
