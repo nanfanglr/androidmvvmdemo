@@ -99,32 +99,6 @@ public abstract class BasePageVMActivity<
      */
     protected abstract SmartRefreshLayout getRefreshLayout();
 
-    @Override
-    protected void setEorrorHint() {
-        viewModel.dataLoadingError.observe(this, msg -> {
-            if (adapter.getItemCount() > 0) {
-                Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
-            } else {
-                viewModel.emptyText.set(msg);
-                setEmptyView();
-            }
-        });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //这里必须去除改监听，否则因callback中的adapter对象持有mainactivity的引用导致内存泄漏
-        viewModel.items.removeOnListChangedCallback(rvOnListChangedCallback);
-    }
-
-    /**
-     * 设置空布局显示的方法
-     */
-    protected void setEmptyView() {
-        adapter.setEmptyView(emptyView);
-    }
-
     /**
      * 初始化列表相关的view及适配器
      */
@@ -188,9 +162,44 @@ public abstract class BasePageVMActivity<
      */
     private void initEmptyOB() {
         viewModel.empty.observe(this, aVoid -> {
-                    viewModel.emptyText.set(this.getString(R.string.empty_no_data));
+                    viewModel.emptyText.set(getRvEmptyText());
                     setEmptyView();
                 }
         );
+    }
+
+    /**
+     * 设置空布局显示的方法
+     */
+    protected void setEmptyView() {
+        adapter.setEmptyView(emptyView);
+    }
+
+    /**
+     * 重写此方法改变空布局文案
+     *
+     * @return
+     */
+    protected String getRvEmptyText() {
+        return this.getString(R.string.empty_no_data);
+    }
+
+    @Override
+    protected void setEorrorHint() {
+        viewModel.dataLoadingError.observe(this, msg -> {
+            if (adapter.getItemCount() > 0) {
+                Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+            } else {
+                viewModel.emptyText.set(msg);
+                setEmptyView();
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //这里必须去除改监听，否则因callback中的adapter对象持有mainactivity的引用导致内存泄漏
+        viewModel.items.removeOnListChangedCallback(rvOnListChangedCallback);
     }
 }
