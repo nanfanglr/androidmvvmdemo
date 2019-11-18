@@ -1,8 +1,14 @@
 package com.rui.androidmvvmdemo.netservice;
 
+import com.rui.androidmvvmdemo.model.AddressModel;
+import com.rui.androidmvvmdemo.model.InterNationalModel;
+import com.rui.androidmvvmdemo.model.LocalModel;
+import com.rui.androidmvvmdemo.model.PayModel;
+import com.rui.androidmvvmdemo.model.PriceModel;
 import com.rui.androidmvvmdemo.model.UserModel;
 import com.rui.mvvm.network.basemodel.ResultModel;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -56,7 +62,47 @@ public interface NetService {
             @Query("page") int page,
             @Query("keyword") String keyword);
 
+    /**
+     * 示范接口
+     *
+     * @param memberId
+     * @return
+     */
+    @GET("pos/test")
+    Observable<ResultModel<AddressModel>> getAddressModel(int memberId);
 
+    /**
+     * 示范接口
+     * @param addressId
+     * @return
+     */
+    @GET("pos/test")
+    Observable<ResultModel<LocalModel>> getLocal(int addressId);
 
+    /**
+     * 示范接口
+     * @param addressId
+     * @return
+     */
+    @GET("pos/test")
+    Observable<ResultModel<InterNationalModel>> getInternational(int addressId);
+
+    /**
+     * 示范接口
+     * @param addressId
+     * @return
+     */
+    @GET("pos/test")
+    Observable<ResultModel<PayModel>> getPay(int addressId);
+
+    /**
+     * 示范接口
+     * @param localId
+     * @param internationalId
+     * @param payId
+     * @return
+     */
+    @GET("pos/test")
+    Observable<ResultModel<PriceModel>> getPrice(int localId, int internationalId, int payId);
 
 }

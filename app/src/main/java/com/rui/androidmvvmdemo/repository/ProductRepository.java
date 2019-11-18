@@ -3,8 +3,10 @@ package com.rui.androidmvvmdemo.repository;
 import android.text.TextUtils;
 
 import com.luck.picture.lib.entity.LocalMedia;
+import com.rui.androidmvvmdemo.model.AddressModel;
 import com.rui.androidmvvmdemo.model.ColorModel;
 import com.rui.androidmvvmdemo.model.MultipleRvItemModel;
+import com.rui.androidmvvmdemo.model.PriceModel;
 import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.netservice.NetService;
@@ -16,7 +18,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.Single;
+import io.reactivex.functions.Function;
 
 /**
  * Created by rui on 2018/11/16
@@ -29,6 +34,52 @@ public class ProductRepository {
     public ProductRepository(NetService service) {
         this.service = service;
     }
+
+    /**
+     * Rxjava操作符示范接口组合处理
+     *
+     * @param memberId
+     * @return
+     */
+    public Observable<AddressModel> getAddressModel(int memberId) {
+        return service.getAddressModel(memberId)
+                .flatMap(addressModelResultModel -> {
+                    if (addressModelResultModel.isSuccess()) {
+                        AddressModel addressModel = addressModelResultModel.getObj();
+                        int addressId = addressModel.getAddressId();
+                        return Observable.zip(
+                                service.getInternational(addressId),
+                                service.getLocal(addressId),
+                                service.getPay(addressId),
+                                (interNationalModelResultModel, localModelResultModel, payModelResultModel) -> {
+                                    if (interNationalModelResultModel.isSuccess())
+                                        addressModel.setInterNationalModel(interNationalModelResultModel.getObj());
+                                    if (localModelResultModel.isSuccess())
+                                        addressModel.setLocalModel(localModelResultModel.getObj());
+                                    if (payModelResultModel.isSuccess())
+                                        addressModel.setPayModel(payModelResultModel.getObj());
+                                    return addressModel;
+                                }
+                        );
+                    } else {
+                        return Observable.error(new Throwable("接口访问失败"));
+                    }
+                })
+                .flatMap(addressModel -> getPriceOB(addressModel))
+                ;
+    }
+
+    public Observable<AddressModel> getPriceOB(AddressModel addressModel) {
+        return service.getPrice(addressModel.getLocalModel().getLocalId()
+                , addressModel.getInterNationalModel().getInternationalId()
+                , addressModel.getPayModel().getPayId())
+                .flatMap((Function<ResultModel<PriceModel>, ObservableSource<AddressModel>>) priceModelResultModel -> {
+                    if (priceModelResultModel.isSuccess())
+                        addressModel.setPriceModel(priceModelResultModel.getObj());
+                    return Observable.just(addressModel);
+                });
+    }
+
 
     /**
      * 获取商品列表数据
