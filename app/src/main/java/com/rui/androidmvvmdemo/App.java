@@ -17,6 +17,12 @@ public class App extends BaseApplication {
     }
 
     @Override
+    public void onCreate() {
+        super.onCreate();
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksIMPL());
+    }
+
+    @Override
     protected void initDagger() {
         applicationComponent = DaggerApplicationComponent.builder()
                 .application(this)
@@ -28,4 +34,6 @@ public class App extends BaseApplication {
     public boolean isDebug() {
         return BuildConfig.DEBUG;
     }
+
+
 }

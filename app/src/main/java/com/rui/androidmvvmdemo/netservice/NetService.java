@@ -69,40 +69,56 @@ public interface NetService {
      * @return
      */
     @GET("pos/test")
-    Observable<ResultModel<AddressModel>> getAddressModel(int memberId);
+    Observable<ResultModel<AddressModel>> getAddressModel(
+            @Query("memberId") int memberId
+    );
 
     /**
      * 示范接口
+     *
      * @param addressId
      * @return
      */
     @GET("pos/test")
-    Observable<ResultModel<LocalModel>> getLocal(int addressId);
+    Observable<ResultModel<LocalModel>> getLocal(
+            @Query("addressId") int addressId
+    );
 
     /**
      * 示范接口
+     *
      * @param addressId
      * @return
      */
     @GET("pos/test")
-    Observable<ResultModel<InterNationalModel>> getInternational(int addressId);
+    Observable<ResultModel<InterNationalModel>> getInternational(
+            @Query("addressId") int addressId
+    );
 
     /**
      * 示范接口
+     *
      * @param addressId
      * @return
      */
     @GET("pos/test")
-    Observable<ResultModel<PayModel>> getPay(int addressId);
+    Observable<ResultModel<PayModel>> getPay(
+            @Query("addressId") int addressId
+    );
 
     /**
      * 示范接口
+     *
      * @param localId
      * @param internationalId
      * @param payId
      * @return
      */
     @GET("pos/test")
-    Observable<ResultModel<PriceModel>> getPrice(int localId, int internationalId, int payId);
+    Observable<ResultModel<PriceModel>> getPrice(
+            @Query("localId") int localId,
+            @Query("internationalId") int internationalId,
+            @Query("payId") int payId
+    );
 
 }
