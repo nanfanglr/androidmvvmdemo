@@ -9,8 +9,8 @@ import android.support.annotation.NonNull;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.livedata.SingleLiveEvent;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
+import com.rui.retrofit2.basemodel.ResultModel;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
 import java.util.List;

@@ -62,16 +62,6 @@ dependencies {
     api projectDependencies.daggerAndroid
     annotationProcessor projectDependencies.daggerAndroidAnnotationProcessor
 
-//    //ButterKnife
-//    api projectDependencies.butterknife
-//    annotationProcessor projectDependencies.butterknifeAnnotationProcessor
-
-    // RetroFit
-    api projectDependencies.retrofit
-    api projectDependencies.retrofitGson
-    api projectDependencies.okhttpLoggingInterceptor
-    api projectDependencies.retrofitRxJava2Adapter
-
     // RxJava
     api projectDependencies.rxAndroid
     api projectDependencies.rxJava2

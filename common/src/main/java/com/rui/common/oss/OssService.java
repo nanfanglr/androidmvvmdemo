@@ -1,6 +1,6 @@
 package com.rui.common.oss;
 
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

@@ -1,7 +1,7 @@
 package com.rui.androidmvvmdemo.model;
 
 import com.luck.picture.lib.entity.LocalMedia;
-import com.rui.mvvm.network.basemodel.BaseModel;
+import com.rui.retrofit2.basemodel.BaseModel;
 
 import java.util.ArrayList;
 import java.util.List;

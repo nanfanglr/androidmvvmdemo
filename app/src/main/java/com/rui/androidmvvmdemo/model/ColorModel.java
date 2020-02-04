@@ -7,7 +7,7 @@ import android.databinding.ObservableInt;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.common.oss.ImageHelper;
-import com.rui.mvvm.network.basemodel.BaseModel;
+import com.rui.retrofit2.basemodel.BaseModel;
 
 /**
  * Created by rui on 2019/6/25

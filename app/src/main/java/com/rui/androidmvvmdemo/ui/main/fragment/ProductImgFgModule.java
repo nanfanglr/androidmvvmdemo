@@ -6,10 +6,10 @@ import android.support.v4.app.Fragment;
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.common.adapter.BaseRvAdapter;
-import com.rui.mvvm.dagger.modules.BaseFragmentModule;
-import com.rui.mvvm.dagger.modules.LLModule;
-import com.rui.mvvm.dagger.scopes.FragmentScope;
-import com.rui.mvvm.dagger.scopes.ViewModelScope;
+import com.rui.mvvm.di.modules.BaseFragmentModule;
+import com.rui.mvvm.di.modules.LLModule;
+import com.rui.mvvm.di.scopes.FragmentScope;
+import com.rui.mvvm.di.scopes.ViewModelScope;
 
 import javax.inject.Named;
 

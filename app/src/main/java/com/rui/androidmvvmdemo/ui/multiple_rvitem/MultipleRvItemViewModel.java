@@ -6,7 +6,7 @@ import com.rui.androidmvvmdemo.model.MultipleRvItemModel;
 import com.rui.androidmvvmdemo.repository.ProductRepository;
 import com.rui.common.base.BasePageViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import javax.inject.Inject;
 

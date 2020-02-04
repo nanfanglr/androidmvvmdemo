@@ -8,11 +8,11 @@ import android.support.v4.app.FragmentActivity;
 import com.rui.androidmvvmdemo.R;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.common.adapter.BaseRvAdapter;
-import com.rui.mvvm.dagger.modules.BaseActivityModule;
-import com.rui.mvvm.dagger.modules.LLModule;
-import com.rui.mvvm.dagger.modules.ObservableModule;
-import com.rui.mvvm.dagger.scopes.ActivityScope;
-import com.rui.mvvm.dagger.scopes.ViewModelScope;
+import com.rui.mvvm.di.modules.BaseActivityModule;
+import com.rui.mvvm.di.modules.LLModule;
+import com.rui.mvvm.di.modules.ObservableModule;
+import com.rui.mvvm.di.scopes.ActivityScope;
+import com.rui.mvvm.di.scopes.ViewModelScope;
 
 import dagger.Binds;
 import dagger.Module;

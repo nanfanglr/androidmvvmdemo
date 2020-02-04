@@ -8,11 +8,11 @@ import android.support.v4.app.FragmentActivity;
 
 import com.rui.androidmvvmdemo.ui.main.fragment.ProductImgFgModule;
 import com.rui.androidmvvmdemo.ui.main.fragment.ProductImgFragment;
-import com.rui.mvvm.dagger.modules.BaseActivityModule;
-import com.rui.mvvm.dagger.modules.ObservableModule;
-import com.rui.mvvm.dagger.scopes.ActivityScope;
-import com.rui.mvvm.dagger.scopes.FragmentScope;
-import com.rui.mvvm.dagger.scopes.ViewModelScope;
+import com.rui.mvvm.di.modules.BaseActivityModule;
+import com.rui.mvvm.di.modules.ObservableModule;
+import com.rui.mvvm.di.scopes.ActivityScope;
+import com.rui.mvvm.di.scopes.FragmentScope;
+import com.rui.mvvm.di.scopes.ViewModelScope;
 import com.rui.mvvm.livedata.SingleLiveEvent;
 
 import dagger.Binds;

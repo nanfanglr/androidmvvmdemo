@@ -13,8 +13,8 @@ import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.androidmvvmdemo.repository.ProductRepository;
 import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
+import com.rui.retrofit2.basemodel.ResultModel;
 import com.rui.toolkit.ToastUtils;
 
 import javax.inject.Inject;

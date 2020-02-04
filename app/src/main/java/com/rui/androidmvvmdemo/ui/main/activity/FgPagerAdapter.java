@@ -11,7 +11,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import static com.rui.mvvm.dagger.modules.BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER;
+import static com.rui.mvvm.di.modules.BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER;
 
 /**
  * Created by rui on 2018/9/1

@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rui.common.base.BaseListViewModel;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import javax.inject.Inject;
 

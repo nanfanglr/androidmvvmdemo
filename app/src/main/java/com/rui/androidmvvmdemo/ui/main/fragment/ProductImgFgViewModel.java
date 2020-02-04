@@ -8,7 +8,7 @@ import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.common.base.BasePageViewModel;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import javax.inject.Inject;
 

@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.repository.ProductRepository;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
 import java.util.List;

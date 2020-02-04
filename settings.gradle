@@ -1,1 +1,1 @@
-include ':app',':mvvm', ':common', ':toolkit', ':viewkit'
+include ':app',':mvvm', ':common', ':toolkit', ':viewkit', ':retrofit2'

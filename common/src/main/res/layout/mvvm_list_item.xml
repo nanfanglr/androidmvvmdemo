@@ -6,7 +6,7 @@
 
         <variable
             name="itemViewModel"
-            type="com.rui.mvvm.network.basemodel.BaseModel" />
+            type="com.rui.retrofit2.basemodel.BaseModel" />
 
     </data>
 

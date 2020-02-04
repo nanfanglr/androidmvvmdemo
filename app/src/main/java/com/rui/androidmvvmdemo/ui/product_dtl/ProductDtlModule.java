@@ -6,11 +6,11 @@ import android.databinding.ObservableList;
 import android.support.v4.app.FragmentActivity;
 
 import com.luck.picture.lib.entity.LocalMedia;
-import com.rui.mvvm.dagger.modules.BaseActivityModule;
-import com.rui.mvvm.dagger.modules.ObservableModule;
-import com.rui.mvvm.dagger.modules.LLModule;
-import com.rui.mvvm.dagger.scopes.ActivityScope;
-import com.rui.mvvm.dagger.scopes.ViewModelScope;
+import com.rui.mvvm.di.modules.BaseActivityModule;
+import com.rui.mvvm.di.modules.ObservableModule;
+import com.rui.mvvm.di.modules.LLModule;
+import com.rui.mvvm.di.scopes.ActivityScope;
+import com.rui.mvvm.di.scopes.ViewModelScope;
 import com.rui.mvvm.obcallback.VPOnListChangedCallback;
 
 import dagger.Binds;

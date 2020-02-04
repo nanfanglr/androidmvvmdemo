@@ -6,7 +6,7 @@ import com.rui.androidmvvmdemo.model.LocalModel;
 import com.rui.androidmvvmdemo.model.PayModel;
 import com.rui.androidmvvmdemo.model.PriceModel;
 import com.rui.androidmvvmdemo.model.UserModel;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;

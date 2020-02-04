@@ -1,6 +1,6 @@
 package com.rui.androidmvvmdemo.model;
 
-import com.rui.mvvm.network.basemodel.BaseModel;
+import com.rui.retrofit2.basemodel.BaseModel;
 
 /**
  * Created by rui on 2018/10/8

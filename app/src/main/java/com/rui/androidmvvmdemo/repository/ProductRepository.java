@@ -11,7 +11,7 @@ import com.rui.androidmvvmdemo.model.ProductDtlModel;
 import com.rui.androidmvvmdemo.model.ProductModel;
 import com.rui.androidmvvmdemo.netservice.NetService;
 import com.rui.common.constant.APPValue;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import java.util.ArrayList;
 import java.util.List;

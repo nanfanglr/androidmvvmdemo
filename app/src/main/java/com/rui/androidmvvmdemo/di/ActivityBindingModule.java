@@ -13,7 +13,7 @@ import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlActivity;
 import com.rui.androidmvvmdemo.ui.product_dtl.ProductDtlModule;
 import com.rui.androidmvvmdemo.ui.rvbinding.RvBindingActivity;
 import com.rui.androidmvvmdemo.ui.rvbinding.RvBindingModule;
-import com.rui.mvvm.dagger.scopes.ActivityScope;
+import com.rui.mvvm.di.scopes.ActivityScope;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

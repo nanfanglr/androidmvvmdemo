@@ -2,10 +2,10 @@ package com.rui.androidmvvmdemo.di;
 
 import com.rui.androidmvvmdemo.App;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.dagger.modules.AndroidModule;
-import com.rui.mvvm.dagger.modules.ApplicationModule;
-import com.rui.mvvm.dagger.modules.NetworkModule;
-import com.rui.mvvm.dagger.modules.ViewModelFactoryModule;
+import com.rui.mvvm.di.modules.AndroidModule;
+import com.rui.mvvm.di.modules.ApplicationModule;
+import com.rui.mvvm.di.modules.ViewModelFactoryModule;
+import com.rui.retrofit2.di.RetrofitModule;
 
 import javax.inject.Singleton;
 
@@ -16,7 +16,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * 这里全局ApplicationComponent注入
- * modules进行细分方便其他项目复用，AndroidModule，NetworkModule，ViewModelFactoryModule
+ * modules进行细分方便其他项目复用，AndroidModule，RetrofitModule，ViewModelFactoryModule
  * Created by rui on 2019/2/12
  */
 @Singleton
@@ -24,7 +24,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidInjectionModule.class,
         AndroidSupportInjectionModule.class,
         ApplicationModule.class,
-        NetworkModule.class,
+        RetrofitModule.class,
         AndroidModule.class,
         ActivityBindingModule.class,
         ViewModelFactoryModule.class,

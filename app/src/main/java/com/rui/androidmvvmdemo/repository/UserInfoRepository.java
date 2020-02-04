@@ -3,7 +3,7 @@ package com.rui.androidmvvmdemo.repository;
 
 import com.rui.androidmvvmdemo.model.UserModel;
 import com.rui.androidmvvmdemo.netservice.NetService;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import io.reactivex.Single;
 import io.reactivex.subjects.PublishSubject;

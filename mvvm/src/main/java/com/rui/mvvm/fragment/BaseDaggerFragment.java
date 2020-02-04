@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.rui.mvvm.dagger.modules.BaseFragmentModule;
+import com.rui.mvvm.di.modules.BaseFragmentModule;
 import com.rui.mvvm.viewmodel.BaseViewModel;
 
 import javax.inject.Inject;

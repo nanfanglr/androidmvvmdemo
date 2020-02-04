@@ -36,6 +36,7 @@ dependencies {
     implementation projectDependencies.supportDesign
 
     api project(':mvvm')
+    api project(':retrofit2')
     implementation project(':viewkit')
     implementation project(':toolkit')
     //glide

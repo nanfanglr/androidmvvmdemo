@@ -1,6 +1,6 @@
 package com.rui.androidmvvmdemo.model;
 
-import com.rui.mvvm.network.basemodel.BaseModel;
+import com.rui.retrofit2.basemodel.BaseModel;
 
 public class MultipleRvItemModel extends BaseModel {
     public static final int SINGLE_TEXT = 1;

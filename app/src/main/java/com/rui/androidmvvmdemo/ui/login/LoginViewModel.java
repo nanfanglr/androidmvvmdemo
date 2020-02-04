@@ -15,9 +15,9 @@ import com.rui.androidmvvmdemo.repository.UserInfoRepository;
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.BaseApplication.BaseApplication;
 import com.rui.mvvm.livedata.SingleLiveEvent;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
-import com.rui.mvvm.network.networkconfig.PropertiesManager;
 import com.rui.mvvm.viewmodel.BaseViewModel;
+import com.rui.retrofit2.PropertiesManager;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
 import com.rui.toolkit.SharedPreferencesUtils;
 import com.rui.toolkit.ToastUtils;
 

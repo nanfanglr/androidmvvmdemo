@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.rui.common.constant.APPValue;
 import com.rui.mvvm.BaseApplication.BaseApplication;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
 
 import java.util.List;
 

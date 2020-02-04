@@ -11,9 +11,9 @@ import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
-import com.rui.mvvm.network.ApiErro.ApiException;
-import com.rui.mvvm.network.ApiErro.ExceptionConsumer;
-import com.rui.mvvm.network.basemodel.ResultModel;
+import com.rui.retrofit2.apierror.ApiException;
+import com.rui.retrofit2.apierror.ExceptionConsumer;
+import com.rui.retrofit2.basemodel.ResultModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
