@@ -1,1 +1,1 @@
-include ':app',':mvvm', ':common', ':toolkit', ':viewkit', ':retrofit2', ':componentservice', ':module_a', ':module_b'
+include ':app',':mvvm', ':common', ':toolkit', ':viewkit', ':retrofit2', ':componentservice', ':module_a', ':module_b','languagelib'
